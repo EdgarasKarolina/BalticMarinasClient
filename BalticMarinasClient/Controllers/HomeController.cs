@@ -5,13 +5,21 @@ using System.Linq;
 using System.Threading.Tasks;
 using Microsoft.AspNetCore.Mvc;
 using BalticMarinasClient.Models;
+using Microsoft.Extensions.Options;
+using BalticMarinasClient.Utilities;
+using BalticMarinasClient.ApiClient;
 
 namespace BalticMarinasClient.Controllers
 {
     public class HomeController : Controller
     {
+        //private readonly IOptions<ApplicationSettings> appSettings;
+
+        EventClient eventClient = new EventClient();
+
         public IActionResult Index()
         {
+            var data = eventClient.GetAllRoles().Result;
             return View();
         }
 

@@ -12,9 +12,12 @@ namespace BalticMarinasClient.Models
         public int Id { get; set; }
 
         [JsonProperty("name")]
-        public int Name { get; set; }
+        public string Name { get; set; }
 
         [JsonProperty("location")]
-        public int Location { get; set; }
+        public string Location { get; set; }
+
+        [JsonProperty("text")]
+        public string Text { get; set; }
     }
 }
