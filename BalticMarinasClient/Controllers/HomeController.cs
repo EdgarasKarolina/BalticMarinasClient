@@ -19,7 +19,7 @@ namespace BalticMarinasClient.Controllers
 
         public IActionResult Index()
         {
-            var data = eventClient.GetAllRoles().Result;
+           // var data = eventClient.GetAllRoles().Result;
             return View();
         }
 
