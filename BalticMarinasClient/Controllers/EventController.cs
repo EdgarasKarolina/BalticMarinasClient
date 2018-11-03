@@ -13,7 +13,8 @@ namespace BalticMarinasClient.Controllers
 
         public IActionResult Index()
         {
-            var data = eventClient.GetAllRoles().Result;
+            var events = eventClient.GetAllEvents().Result;
+            ViewBag.EventsList = events;
             return View();
         }
     }

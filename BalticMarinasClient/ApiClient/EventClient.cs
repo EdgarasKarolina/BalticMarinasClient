@@ -14,7 +14,7 @@ namespace BalticMarinasClient.ApiClient
     {
         private string serviceBase = "https://localhost:44326/api/event";
 
-        public async Task<ObservableCollection<Event>> GetAllRoles()
+        public async Task<ObservableCollection<Event>> GetAllEvents()
         {
             var result = string.Empty;
 

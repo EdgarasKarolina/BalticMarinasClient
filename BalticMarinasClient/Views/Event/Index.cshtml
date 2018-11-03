@@ -12,21 +12,19 @@
 <table class="table">
     <thead>
         <tr>
-            <th>
-                @Html.DisplayNameFor(model => model.Id)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Name)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Location)
-            </th>
-            <th>
-                @Html.DisplayNameFor(model => model.Text)
-            </th>
-            <th></th>
+            <th>Name</th>
+            <th>Location</th>
+            <th>Text</th>
         </tr>
     </thead>
     <tbody>
+        @foreach (var item in ViewBag.EventsList)
+        {
+            <tr>
+                <td>@item.Name</td>
+                <td>@item.Location</td>
+                <td>@item.Text</td>
+            </tr>
+        }
     </tbody>
 </table>
