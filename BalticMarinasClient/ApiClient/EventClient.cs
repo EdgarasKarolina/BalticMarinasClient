@@ -12,7 +12,7 @@ namespace BalticMarinasClient.ApiClient
 {
     public class EventClient
     {
-        private string serviceBase = "https://localhost:44326/api/values";
+        private string serviceBase = "https://localhost:44326/api/event";
 
         public async Task<ObservableCollection<Event>> GetAllRoles()
         {
