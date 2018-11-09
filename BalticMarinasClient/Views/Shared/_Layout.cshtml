@@ -17,7 +17,7 @@
     </environment>
 </head>
 <body>
-    <nav class="navbar navbar-inverse navbar-fixed-top">
+    <nav class="navbar navbar-inverse navbar-fixed-top" id="layout-header">
         <div class="container">
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
@@ -33,7 +33,7 @@
                     <li><a asp-area="" asp-controller="Home" asp-action="Index">Marinas</a></li>
                     <li><a asp-area="" asp-controller="SellBuy" asp-action="Index">Boats and equipment</a></li>
                     <li><a asp-area="" asp-controller="Event" asp-action="Index">Events</a></li>
-                    <li><a asp-area="" asp-controller="Home" asp-action="Contact">Weather</a></li>
+                    <li><a asp-area="" asp-controller="Weather" asp-action="Index">Weather</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="Contact">Contact</a></li>
                 </ul>
@@ -47,7 +47,7 @@
         @RenderBody()
         <hr />
         <footer>
-            <p>&copy; 2018 - BalticMarinasClient</p>
+            <p>&copy; 2018 - Baltic Marinas</p>
         </footer>
     </div>
 

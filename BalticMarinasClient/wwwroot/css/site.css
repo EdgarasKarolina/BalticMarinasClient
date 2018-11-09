@@ -35,3 +35,8 @@ body {
         display: none;
     }
 }
+
+#layout-header{
+    background-color: red;
+    color: red;
+}
