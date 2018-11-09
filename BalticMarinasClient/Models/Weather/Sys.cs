@@ -9,16 +9,21 @@ namespace BalticMarinasClient.Models.Weather
     public class Sys
     {
         [JsonProperty("type")]
-        public int type { get; set; }
+        public int Type { get; set; }
+
         [JsonProperty("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
+
         [JsonProperty("message")]
-        public double message { get; set; }
+        public double Message { get; set; }
+
         [JsonProperty("country")]
-        public string country { get; set; }
+        public string Country { get; set; }
+
         [JsonProperty("sunrise")]
-        public int sunrise { get; set; }
+        public int Sunrise { get; set; }
+
         [JsonProperty("sunset")]
-        public int sunset { get; set; }
+        public int Sunset { get; set; }
     }
 }

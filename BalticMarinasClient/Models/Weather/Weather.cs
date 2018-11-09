@@ -9,12 +9,15 @@ namespace BalticMarinasClient.Models.Weather
     public class Weather
     {
         [JsonProperty("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
+
         [JsonProperty("main")]
-        public string main { get; set; }
+        public string Main { get; set; }
+
         [JsonProperty("description")]
-        public string description { get; set; }
+        public string Description { get; set; }
+
         [JsonProperty("icon")]
-        public string icon { get; set; }
+        public string Icon { get; set; }
     }
 }

@@ -9,15 +9,18 @@ namespace BalticMarinasClient.Models.Weather
     public class Main
     {
         [JsonProperty("temp")]
-        public double temp { get; set; }
+        public double Temp { get; set; }
+
         [JsonProperty("pressure")]
-        public string pressure { get; set; }
-        //public int pressure { get; set; }
+        public string Pressure { get; set; }
+
         [JsonProperty("humidity")]
-        public int humidity { get; set; }
+        public int Humidity { get; set; }
+
         [JsonProperty("temp_min")]
-        public string temp_min { get; set; }
+        public string Temp_min { get; set; }
+
         [JsonProperty("temp_max")]
-        public string temp_max { get; set; }
+        public string Temp_max { get; set; }
     }
 }

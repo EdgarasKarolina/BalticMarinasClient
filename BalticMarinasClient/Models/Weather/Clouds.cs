@@ -9,6 +9,6 @@ namespace BalticMarinasClient.Models.Weather
     public class Clouds
     {
         [JsonProperty("all")]
-        public int all { get; set; }
+        public int All { get; set; }
     }
 }

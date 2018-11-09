@@ -9,28 +9,39 @@ namespace BalticMarinasClient.Models.Weather
     public class ResponseWeather
     {
         [JsonProperty("coord")]
-        public Coord coord { get; set; }
+        public Coord Coord { get; set; }
+
         [JsonProperty("weather")]
-        public List<Weather> weather { get; set; }
+        public List<Weather> Weather { get; set; }
+
         [JsonProperty("@base")]
         public string @base { get; set; }
+
         [JsonProperty("main")]
-        public Main main { get; set; }
+        public Main Main { get; set; }
+
         [JsonProperty("visibility")]
-        public int visibility { get; set; }
+        public int Visibility { get; set; }
+
         [JsonProperty("wind")]
-        public Wind wind { get; set; }
+        public Wind Wind { get; set; }
+
         [JsonProperty("clouds")]
-        public Clouds clouds { get; set; }
+        public Clouds Clouds { get; set; }
+
         [JsonProperty("dt")]
-        public int dt { get; set; }
+        public int Dt { get; set; }
+
         [JsonProperty("sys")]
-        public Sys sys { get; set; }
+        public Sys Sys { get; set; }
+
         [JsonProperty("id")]
-        public int id { get; set; }
+        public int Id { get; set; }
+
         [JsonProperty("name")]
-        public string name { get; set; }
+        public string Name { get; set; }
+
         [JsonProperty("cod")]
-        public int cod { get; set; }
+        public int Cod { get; set; }
     }
 }
