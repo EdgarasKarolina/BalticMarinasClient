@@ -15,16 +15,18 @@
             <th>Name</th>
             <th>Location</th>
             <th>Text</th>
+            <th>More</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in ViewBag.EventsList)
         {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Location</td>
-                <td>@item.Text</td>
-            </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Location</td>
+            <td>@item.Text</td>
+            <td>@Html.ActionLink("More Information", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+        </tr>
         }
     </tbody>
 </table>

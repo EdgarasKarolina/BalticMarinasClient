@@ -17,5 +17,12 @@ namespace BalticMarinasClient.Controllers
             ViewBag.EventsList = events;
             return View();
         }
+
+        public IActionResult Details(int? id)
+        {
+            var events = eventClient.GetEventById(id).Result;
+            ViewBag.EventsList = events;
+            return View();
+        }
     }
 }

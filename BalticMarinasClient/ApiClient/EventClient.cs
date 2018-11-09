@@ -43,5 +43,37 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
+
+        public async Task<Event> GetEventById(int? eventId)
+        {
+            var result = string.Empty;
+            var eventResult = new Event();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.serviceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = serviceBase + "/" + eventId;
+
+                HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadAsStringAsync();
+                }
+
+                try
+                {
+                    eventResult = JsonConvert.DeserializeObject<Event>(result);
+                }
+                catch (Exception e)
+                {
+                    //this.logger.Error($"Error in GetUserByEmail - {e}");
+                }
+            }
+
+            return eventResult;
+        }
     }
 }
