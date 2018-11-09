@@ -13,5 +13,12 @@ namespace BalticMarinasClient.Controllers
             ViewBag.ItemsList = items;
             return View();
         }
+
+        public IActionResult Details(int? id)
+        {
+            var soldItem = sellBuyClient.GetSoldItemById(id).Result;
+            ViewBag.Item = soldItem;
+            return View();
+        }
     }
 }

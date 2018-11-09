@@ -17,18 +17,20 @@
             <th>Price</th>
             <th>Year</th>
             <th>Description</th>
+            <th>More</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in ViewBag.ItemsList)
         {
-            <tr>
-                <td>@item.Name</td>
-                <td>@item.Type</td>
-                <td>@item.Price</td>
-                <td>@item.Year</td>
-                <td>@item.Description</td>
-            </tr>
+        <tr>
+            <td>@item.Name</td>
+            <td>@item.Type</td>
+            <td>@item.Price</td>
+            <td>@item.Year</td>
+            <td>@item.Description</td>
+            <td>@Html.ActionLink("More Information", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+        </tr>
         }
     </tbody>
 </table>
