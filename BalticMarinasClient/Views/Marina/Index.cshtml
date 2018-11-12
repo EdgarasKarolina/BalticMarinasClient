@@ -1,0 +1,36 @@
+﻿
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h2>Index</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Depth</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Berths</th>
+            <th>Internet</th>
+            <th>More</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.MarinasList)
+        {
+        <tr>
+            <td>@item.MarinaName</td>
+            <td>@item.Phone</td>
+            <td>@item.Depth</td>
+            <td>@item.CityName</td>
+            <td>@item.Country</td>
+            <td>@item.TotalBerths</td>
+            <td>@item.IsInternet</td>
+        </tr>
+        }
+    </tbody>
+</table>
+

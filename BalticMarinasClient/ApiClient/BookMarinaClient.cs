@@ -12,7 +12,7 @@ namespace BalticMarinasClient.ApiClient
 {
     public class BookMarinaClient
     {
-        private string serviceBase = "https://localhost:44326/api/marina";
+        private string serviceBase = "https://localhost:44300/api/marina";
 
         public async Task<ObservableCollection<Marina>> GetAllMarinas()
         {
