@@ -12,7 +12,8 @@ namespace BalticMarinasClient.ApiClient
 {
     public class BookMarinaClient
     {
-        private string serviceBase = "https://localhost:44300/api/marina";
+        private string marinaServiceBase = "https://localhost:44300/api/marina";
+        private string berthServiceBase = "https://localhost:44300/api/berth";
 
         public async Task<ObservableCollection<Marina>> GetAllMarinas()
         {
@@ -20,11 +21,11 @@ namespace BalticMarinasClient.ApiClient
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(this.serviceBase);
+                client.BaseAddress = new Uri(this.marinaServiceBase);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = serviceBase;
+                var urlAddress = marinaServiceBase;
 
                 try
                 {
@@ -42,6 +43,38 @@ namespace BalticMarinasClient.ApiClient
                     throw new Exception($"Error: {e.StackTrace}");
                 }
             }
+        }
+
+        public async Task<Marina> GetMarinaById(int? marinaId)
+        {
+            var result = string.Empty;
+            var marinaResult = new Marina();
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.marinaServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = marinaServiceBase + "/" + marinaId;
+
+                HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                if (response.IsSuccessStatusCode)
+                {
+                    result = await response.Content.ReadAsStringAsync();
+                }
+
+                try
+                {
+                    marinaResult = JsonConvert.DeserializeObject<Marina>(result);
+                }
+                catch (Exception e)
+                {
+                    //this.logger.Error($"Error in GetUserByEmail - {e}");
+                }
+            }
+
+            return marinaResult;
         }
     }
 }
