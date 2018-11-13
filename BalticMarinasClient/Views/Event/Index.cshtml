@@ -16,6 +16,7 @@
             <th>Location</th>
             <th>Text</th>
             <th>More</th>
+            <th>Delete</th>
         </tr>
     </thead>
     <tbody>
@@ -26,6 +27,7 @@
             <td>@item.Location</td>
             <td>@item.Text</td>
             <td>@Html.ActionLink("More Information", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@Html.ActionLink("Deleting", "Delete", new { id = item.Id }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
         </tr>
         }
     </tbody>

@@ -24,5 +24,13 @@ namespace BalticMarinasClient.Controllers
             ViewBag.EventsList = events;
             return View();
         }
+
+        //[HttpDelete, ActionName("Delete")]
+        public IActionResult Delete(int? id)
+        {
+            eventClient.DeleteEventById(id);
+            return RedirectToAction("Index");
+            //return View();
+        }
     }
 }
