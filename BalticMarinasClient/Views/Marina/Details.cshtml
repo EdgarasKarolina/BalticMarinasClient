@@ -3,14 +3,13 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>@ViewBag.MarinasList.MarinaName Details</h2>
+<h1>@ViewBag.MarinasList.MarinaName</h1>
 
-<td>@ViewBag.MarinasList.MarinaName</td>
-<td>@ViewBag.MarinasList.Phone</td>
-<td>@ViewBag.MarinasList.Depth</td>
-<td>@ViewBag.MarinasList.CityName</td>
-<td>@ViewBag.MarinasList.Country</td>
-<td>@ViewBag.MarinasList.TotalBerths</td>
-<td>@ViewBag.MarinasList.IsInternet</td>
-<td>@Html.ActionLink("More Information", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+<div>@ViewBag.MarinasList.Phone</div>
+<div>@ViewBag.MarinasList.Depth</div>
+<div>@ViewBag.MarinasList.CityName</div>
+<div>@ViewBag.MarinasList.Country</div>
+<div>@ViewBag.MarinasList.TotalBerths</div>
+<div>@ViewBag.MarinasList.IsInternet</div>
+<div>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</div>
 

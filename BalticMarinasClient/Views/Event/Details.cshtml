@@ -3,10 +3,8 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Details</h2>
+<h1>@ViewBag.EventsList.Name</h1>
 
-<td>@ViewBag.EventsList.Id</td>
-<td>@ViewBag.EventsList.Name</td>
-<td>@ViewBag.EventsList.Location</td>
-<td>@ViewBag.EventsList.Text</td>
+<h3>@ViewBag.EventsList.Location</h3>
+<div>@ViewBag.EventsList.Text</div>
 
