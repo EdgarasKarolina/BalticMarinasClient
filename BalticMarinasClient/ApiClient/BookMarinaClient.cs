@@ -168,5 +168,65 @@ namespace BalticMarinasClient.ApiClient
 
             return berthResult;
         }
+
+        public async Task<ObservableCollection<Marina>> GetMarinasByCountry(string country)
+        {
+            var result = string.Empty;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.marinaServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = marinaServiceBase + "/" + "country" + "/" + country;
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    var list = JsonConvert.DeserializeObject<ObservableCollection<Marina>>(result);
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+
+        public async Task<ObservableCollection<Berth>> GetAvailableBerthsByMarina(int? marinaId, string checkIn, string checkOut)
+        {
+            var result = string.Empty;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.berthServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = berthServiceBase + "/" + marinaId + "/" + checkIn + "/" + checkOut;
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    var list = JsonConvert.DeserializeObject<ObservableCollection<Berth>>(result);
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
     }
 }

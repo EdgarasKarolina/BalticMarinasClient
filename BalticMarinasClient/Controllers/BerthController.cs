@@ -18,6 +18,14 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
+        //public IActionResult Available(int? marinaId, string checkIn, string checkOut)
+        public IActionResult Available(int? marinaId)
+        {
+            var berths = bookMarinaClient.GetAvailableBerthsByMarina(marinaId, "2019-10-16", "2019-10-20").Result;
+            ViewBag.BerthsList = berths;
+            return View();
+        }
+
         public IActionResult Details(int? marinaId, int? berthId)
         {
             var berths = bookMarinaClient.GetBerthByMarinaIdAndBerthId(marinaId, berthId).Result;

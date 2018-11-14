@@ -24,5 +24,12 @@ namespace BalticMarinasClient.Controllers
             ViewBag.MarinasList = marinas;
             return View();
         }
+
+        public IActionResult ByCountry(string country = "")
+        {
+            var marinas = bookMarinaClient.GetMarinasByCountry(country).Result;
+            ViewBag.MarinasList = marinas;
+            return View();
+        }
     }
 }

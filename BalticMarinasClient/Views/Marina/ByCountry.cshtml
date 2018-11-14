@@ -1,0 +1,39 @@
+﻿
+@{
+    ViewData["Title"] = "ByCountry";
+}
+
+<h2>Marinas in Country</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Depth</th>
+            <th>City</th>
+            <th>Country</th>
+            <th>Berths</th>
+            <th>Internet</th>
+            <th>Details</th>
+            <th>Availability</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.MarinasList)
+        {
+        <tr>
+            <td>@item.MarinaName</td>
+            <td>@item.Phone</td>
+            <td>@item.Depth</td>
+            <td>@item.CityName</td>
+            <td>@item.Country</td>
+            <td>@item.TotalBerths</td>
+            <td>@item.IsInternet</td>
+            <td>@Html.ActionLink("Details", "Details", new { id = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@Html.ActionLink("Details", "Available", "Berth", new { marinaId = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
