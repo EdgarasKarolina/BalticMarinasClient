@@ -11,18 +11,20 @@
             <th>BerthId</th>
             <th>MarinaId</th>
             <th>Price</th>
-            <th>More Information</th>
+            <th>Information</th>
+            <th>Reservation</th>
         </tr>
     </thead>
     <tbody>
         @foreach (var item in ViewBag.BerthsList)
         {
-            <tr>
-                <td>@item.BerthId</td>
-                <td>@item.MarinaId</td>
-                <td>@item.Price</td>
-                <td>@Html.ActionLink("More Information", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-            </tr>
+        <tr>
+            <td>@item.BerthId</td>
+            <td>@item.MarinaId</td>
+            <td>@item.Price</td>
+            <td>@Html.ActionLink("More Information", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@Html.ActionLink("Reservation", "Reserve", "Reservation", new { berthId = item.BerthId, customerId = 1, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+        </tr>
         }
     </tbody>
 </table>

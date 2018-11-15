@@ -30,8 +30,8 @@
             <td>@item.Country</td>
             <td>@item.TotalBerths</td>
             <td>@item.IsInternet</td>
-            <td>@Html.ActionLink("Details", "Details", new { id = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-            <td>@Html.ActionLink("Details", "Available", "Berth", new { marinaId = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@Html.ActionLink("Marinas Details", "Details", new { id = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@Html.ActionLink("Available Berths", "Available", "Berth", new { marinaId = item.MarinaId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
         </tr>
         }
     </tbody>
