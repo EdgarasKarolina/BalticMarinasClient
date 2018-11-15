@@ -1,13 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
-using System.Linq;
-using System.Threading.Tasks;
-using Microsoft.AspNetCore.Mvc;
+﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
-using Microsoft.Extensions.Options;
-using BalticMarinasClient.Utilities;
-using BalticMarinasClient.ApiClient;
+using Microsoft.AspNetCore.Mvc;
+using System.Diagnostics;
 
 namespace BalticMarinasClient.Controllers
 {
