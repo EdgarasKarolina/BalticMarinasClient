@@ -12,7 +12,14 @@
                 <div class="row">
                     <div class="col-md-6" id="search-inputs-div">
                         <br />
-                        @Html.TextBox("country", "", new {@id = "to-price-textbox" })
+                        @Html.DisplayName("Country")
+                        @Html.TextBox("country", "", new { @id = "to-price-textbox" })
+                        <br />
+                        @Html.DisplayName("CheckIn")
+                        @Html.TextBox("checkIn", "", new { @id = "to-price-textbox" })
+                        <br />
+                        @Html.DisplayName("CheckOut")
+                        @Html.TextBox("checkOut", "", new { @id = "to-price-textbox" })
                         <br />
                     </div>
                     <div class="col-md-6" id="search-projects-buttons">

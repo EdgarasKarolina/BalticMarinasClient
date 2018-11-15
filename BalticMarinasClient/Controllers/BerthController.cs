@@ -21,7 +21,7 @@ namespace BalticMarinasClient.Controllers
         //public IActionResult Available(int? marinaId, string checkIn, string checkOut)
         public IActionResult Available(int? marinaId)
         {
-            var berths = bookMarinaClient.GetAvailableBerthsByMarina(marinaId, "2019-10-16", "2019-10-20").Result;
+            var berths = bookMarinaClient.GetAvailableBerthsByMarina(marinaId, "2018-10-16", "2018-10-20").Result;
             ViewBag.BerthsList = berths;
             return View();
         }
