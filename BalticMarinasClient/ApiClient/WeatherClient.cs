@@ -9,7 +9,7 @@ namespace BalticMarinasClient.ApiClient
 {
     public class WeatherClient
     {
-        private string serviceBase = "http://api.openweathermap.org/data/2.5/group?id=598098,596612,598316,594050&APPID=2dca90787552469233eb9eda9f1dfac4&units=metric";
+        private string serviceBase = "http://api.openweathermap.org/data/2.5/group?id=598098,596612,598316,594050,457138,595087&APPID=2dca90787552469233eb9eda9f1dfac4&units=metric";
 
         public async Task<ObservableCollection<Models.Weather.ResponseWeather>> GetAllWeather()
         {

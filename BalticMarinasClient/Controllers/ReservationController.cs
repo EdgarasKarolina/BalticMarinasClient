@@ -12,5 +12,14 @@ namespace BalticMarinasClient.Controllers
             eventClient.CreateReservation(berthId, customerId, checkIn, checkOut);
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult PersonalInformation(int berthId, int customerId, string checkIn, string checkOut)
+        {
+            ViewBag.BerthId = berthId;
+            ViewBag.CustomerId = customerId;
+            ViewBag.CheckIn = checkIn;
+            ViewBag.CheckOut = checkOut;
+            return View();
+        }
     }
 }

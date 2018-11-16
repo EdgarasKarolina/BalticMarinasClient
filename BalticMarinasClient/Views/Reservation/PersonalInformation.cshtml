@@ -1,0 +1,43 @@
+﻿
+@{
+    ViewData["Title"] = "PersonalInformation";
+}
+
+<h2>Personal Information</h2>
+
+@using (Html.BeginForm("ByCountry", "Marina", FormMethod.Get))
+
+{
+<p>
+    <div class="row">
+        <div class="col-md-9" style="display:inline-block">
+            <div class="row">
+                <div class="col-md-6" id="search-inputs-div">
+                    <br />
+                    @Html.DisplayName("CheckIn Day")
+                    @Html.TextBox("checkIn", (string) ViewBag.CheckIn, new { @readonly = "readonly" })
+                    <br />
+                    @Html.DisplayName("CheckOut Day")
+                    @Html.TextBox("checkOut", (string) ViewBag.CheckOut, new { @readonly = "readonly" })
+                    <br />
+                    @Html.DisplayName("Name")
+                    @Html.TextBox("name", "", new { @id = "to-price-textbox" })
+                    <br />
+                    @Html.DisplayName("Surname")
+                    @Html.TextBox("surname", "", new { @id = "to-price-textbox" })
+                    <br />
+                    @Html.Hidden("berthId", (int) ViewBag.BerthId)
+                    <br />
+                    @Html.Hidden("customerId", (int) ViewBag.CustomerId)
+                    <br />
+                </div>
+                <div class="col-md-6" id="search-projects-buttons">
+                    <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Search")</button>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3"></div>
+    </div>
+</p>
+}
+
