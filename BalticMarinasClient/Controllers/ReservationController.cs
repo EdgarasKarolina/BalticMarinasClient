@@ -21,5 +21,14 @@ namespace BalticMarinasClient.Controllers
             ViewBag.CheckOut = checkOut;
             return View();
         }
+
+        public IActionResult Payment(int berthId, int customerId, string checkIn, string checkOut)
+        {
+            ViewBag.BerthId = berthId;
+            ViewBag.CustomerId = customerId;
+            ViewBag.CheckIn = checkIn;
+            ViewBag.CheckOut = checkOut;
+            return View();
+        }
     }
 }

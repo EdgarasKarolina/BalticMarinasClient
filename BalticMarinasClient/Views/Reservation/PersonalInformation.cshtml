@@ -5,7 +5,7 @@
 
 <h2>Personal Information</h2>
 
-@using (Html.BeginForm("ByCountry", "Marina", FormMethod.Get))
+@using (Html.BeginForm("Payment", "Reservation", FormMethod.Get))
 
 {
 <p>
@@ -32,7 +32,7 @@
                     <br />
                 </div>
                 <div class="col-md-6" id="search-projects-buttons">
-                    <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Search")</button>
+                    <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Proceed to Payment")</button>
                 </div>
             </div>
         </div>

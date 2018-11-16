@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Payment";
+}
+
+<h2>Payment</h2>
+
+@using (Html.BeginForm("Reserve", "Reservation", FormMethod.Get))
+
+{
+    <p>
+        <div class="row">
+            <div class="col-md-9" style="display:inline-block">
+                <div class="row">
+                    <div class="col-md-6" id="search-inputs-div">
+                        <br />
+                        @Html.DisplayName("Card Holders Name")
+                        @Html.TextBox("cardHoldersName", "", new { @readonly = "readonly" })
+                        <br />
+                        @Html.DisplayName("Card Number")
+                        @Html.TextBox("cardNumber", "", new { @readonly = "readonly" })
+                        <br />
+                        @Html.DisplayName("CVR")
+                        @Html.TextBox("cvr", "", new { @id = "to-price-textbox" })
+                        <br />
+
+                        @Html.Hidden("checkIn", (string)ViewBag.CheckIn)
+                        @Html.Hidden("checkOut", (string)ViewBag.CheckOut)
+                        @Html.Hidden("berthId", (int)ViewBag.BerthId))
+                        @Html.Hidden("customerId", (int)ViewBag.CustomerId)
+                        <br />
+                    </div>
+                    <div class="col-md-6" id="search-projects-buttons">
+                        <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Confirmation")</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </p>
+}
+
