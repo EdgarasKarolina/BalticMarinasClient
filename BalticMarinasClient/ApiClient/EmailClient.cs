@@ -11,7 +11,7 @@ namespace BalticMarinasClient.ApiClient
     {
         private string emailServiceBase = "https://localhost:44392/api/email";
 
-        public async void CreateReservation(string emailBody, string receiver)
+        public async void SendConfirmationEmail(string emailBody, string receiver)
         {
             Email email = new Email();
             email.EmailBody = emailBody;

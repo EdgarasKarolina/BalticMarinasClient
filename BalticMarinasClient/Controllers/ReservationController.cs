@@ -6,10 +6,12 @@ namespace BalticMarinasClient.Controllers
     public class ReservationController : Controller
     {
         BookMarinaClient eventClient = new BookMarinaClient();
+        EmailClient emailClient = new EmailClient();
 
         public IActionResult Reserve(int berthId, int customerId, string checkIn, string checkOut)
         {
             eventClient.CreateReservation(berthId, customerId, checkIn, checkOut);
+            emailClient.SendConfirmationEmail("Succes", "edgarasvilija@gmail.com");
             return RedirectToAction("Index", "Home");
         }
 
