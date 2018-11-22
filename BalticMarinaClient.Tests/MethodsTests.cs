@@ -2,7 +2,7 @@
 
 namespace BalticMarinaClient.Tests
 {
-    public class Class1
+    public class MethodsTests
     {
 
     }

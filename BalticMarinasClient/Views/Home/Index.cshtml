@@ -6,49 +6,41 @@
 <body>
 
     @using (Html.BeginForm("ByCountry", "Marina", FormMethod.Get))
-
     {
-        <div class="container">
-            <div class='col-md-5'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker6'>
-                        <input type='text' class="form-control" name="checkIn" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
-                    </div>
+    <div class="container" id="search-block">
+        <div class='col-md-4'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker6'>
+                    <input type='text' class="form-control" name="checkIn" placeholder="Check-in" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
                 </div>
             </div>
-            <div class='col-md-5'>
-                <div class="form-group">
-                    <div class='input-group date' id='datetimepicker7'>
-                        <input type='text' class="form-control" name="checkOut" />
-                        <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                        </span>
+        </div>
+        <div class='col-md-4'>
+            <div class="form-group">
+                <div class='input-group date' id='datetimepicker7'>
+                    <input type='text' class="form-control" name="checkOut" placeholder="Check-in" />
+                    <span class="input-group-addon">
+                        <span class="glyphicon glyphicon-calendar"></span>
+                    </span>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-4" style="display:inline-block">
+                <div class="row">
+                    <div class="col-md-6" id="search-inputs-div">
+                        @Html.TextBox("country", "", new { placeholder = "Location" })
+                    </div>
+                    <div class="col-md-6" id="search-projects-buttons">
+                        <button type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Search")</button>
                     </div>
                 </div>
             </div>
         </div>
-        <p>
-            <div class="row">
-                <div class="col-md-9" style="display:inline-block">
-                    <div class="row">
-                        <div class="col-md-6" id="search-inputs-div">
-                            <br />
-                            @Html.DisplayName("Country")
-                            @Html.TextBox("country", "", new { @id = "to-price-textbox" })
-                            <br />
-                        </div>
-                        <div class="col-md-6" id="search-projects-buttons">
-                            <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Search")</button>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-3"></div>
-            </div>
-        </p>
-
+    </div>
     }
 </body>
 <div data-interval="6000">
