@@ -1,0 +1,47 @@
+﻿
+@{
+    ViewData["Title"] = "RegistrationForm";
+}
+
+<h2>RegistrationForm</h2>
+
+@using (Html.BeginForm("CreateUser", "User", FormMethod.Post))
+
+{
+    <p>
+        <div class="row">
+            <div class="col-md-9" style="display:inline-block">
+                <div class="row">
+                    <div class="col-md-6" id="search-inputs-div">
+                        <br />
+                        @Html.DisplayName("Username")
+                        @Html.TextBox("userName", "")
+                        <br />
+                        @Html.DisplayName("Password")
+                        @Html.TextBox("userPassword", "")
+                        <br />
+                        @Html.DisplayName("First name")
+                        @Html.TextBox("firstName", "")
+                        <br />
+                        @Html.DisplayName("Last name")
+                        @Html.TextBox("lastName", "")
+                        <br />
+                        @Html.DisplayName("Email")
+                        @Html.TextBox("email", "")
+                        <br />
+                        @Html.DisplayName("Phone number")
+                        @Html.TextBox("phoneNumber", "")
+                        <br />
+                        @Html.DisplayName("Country")
+                        @Html.TextBox("country", "")
+                    </div>
+                    <div class="col-md-6" id="search-projects-buttons">
+                        <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Create Account")</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </p>
+}
+
