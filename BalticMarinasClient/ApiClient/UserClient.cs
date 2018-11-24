@@ -1,14 +1,16 @@
-﻿using Newtonsoft.Json;
+﻿using BalticMarinasClient.Models;
+using Newtonsoft.Json;
 using System;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BalticMarinasClient.ApiClient
 {
     public class UserClient
     {
-        private string userServiceBase = "https://localhost:44300/api/user";
+        private string userServiceBase = "https://localhost:44300/api/user/";
 
         public async Task<int> AuthenticateUser(string userName, string password)
         {
@@ -40,27 +42,20 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
-
-        /*
-        public async void CreateUser(int berthId, int customerId, string checkIn, string checkOut)
+      
+        public async void CreateUser(User user)
         {
-            Reservation reservation = new Reservation();
-            reservation.BerthId = berthId;
-            reservation.CustomerId = customerId;
-            reservation.CheckIn = checkIn;
-            reservation.CheckOut = checkOut;
-
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(this.reservationServiceBase);
+                client.BaseAddress = new Uri(this.userServiceBase);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var json = JsonConvert.SerializeObject(reservation);
+                var json = JsonConvert.SerializeObject(user);
 
-                HttpResponseMessage response = await client.PostAsync(reservationServiceBase + "/" + berthId + "/" + customerId + "/" + checkIn + "/" + checkOut, new StringContent(json, Encoding.UTF8, "application/json"));
+                HttpResponseMessage response = await client.PostAsync(userServiceBase, new StringContent(json, Encoding.UTF8, "application/json"));
                 response.EnsureSuccessStatusCode();
             }
-        } */
+        } 
     }
 }
