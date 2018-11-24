@@ -21,7 +21,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = userServiceBase + userName + "/" + password;
+                var urlAddress = userServiceBase + "/" + userName + "/" + password;
 
                 try
                 {
@@ -40,5 +40,27 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
+
+        /*
+        public async void CreateUser(int berthId, int customerId, string checkIn, string checkOut)
+        {
+            Reservation reservation = new Reservation();
+            reservation.BerthId = berthId;
+            reservation.CustomerId = customerId;
+            reservation.CheckIn = checkIn;
+            reservation.CheckOut = checkOut;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.reservationServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var json = JsonConvert.SerializeObject(reservation);
+
+                HttpResponseMessage response = await client.PostAsync(reservationServiceBase + "/" + berthId + "/" + customerId + "/" + checkIn + "/" + checkOut, new StringContent(json, Encoding.UTF8, "application/json"));
+                response.EnsureSuccessStatusCode();
+            }
+        } */
     }
 }
