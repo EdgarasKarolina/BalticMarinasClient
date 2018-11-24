@@ -10,7 +10,7 @@ namespace BalticMarinasClient.ApiClient
 {
     public class UserClient
     {
-        private string userServiceBase = "https://localhost:44300/api/user/";
+        private string userServiceBase = "https://localhost:44315/api/user/";
 
         public async Task<int> AuthenticateUser(string userName, string password)
         {
