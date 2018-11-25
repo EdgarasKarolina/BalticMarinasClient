@@ -1,4 +1,5 @@
 ﻿using BalticMarinasClient.ApiClient;
+using BalticMarinasClient.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BalticMarinasClient.Controllers
@@ -10,7 +11,8 @@ namespace BalticMarinasClient.Controllers
 
         public IActionResult Reserve(int berthId, int customerId, string checkIn, string checkOut)
         {
-            eventClient.CreateReservation(berthId, customerId, checkIn, checkOut);
+            Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
+            eventClient.CreateReservation(reservation);
             emailClient.SendConfirmationEmail("Succes", "edgarasvilija@gmail.com");
             return RedirectToAction("Index", "Home");
         }
