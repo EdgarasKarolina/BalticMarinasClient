@@ -1,4 +1,5 @@
 ﻿using BalticMarinasClient.ApiClient;
+using BalticMarinasClient.Models;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BalticMarinasClient.Controllers
@@ -21,11 +22,17 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
-        //[HttpDelete, ActionName("Delete")]
         public IActionResult Delete(int? id)
         {
             eventClient.DeleteEventById(id);
             return RedirectToAction("Index");
+        }
+
+        public IActionResult CreateEvent(string title, string location, string period, string description)
+        {
+            Event newEvent = new Event() { Title = title, Location = location, Period = period, Description = description };
+            eventClient.CreateEvent(newEvent);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
