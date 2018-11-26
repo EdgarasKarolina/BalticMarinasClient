@@ -9,9 +9,10 @@
 <table class="table">
     <thead>
         <tr>
-            <th>Name</th>
+            <th>Title</th>
             <th>Location</th>
-            <th>Text</th>
+            <th>Period</th>
+            <th>Description</th>
             <th>More</th>
             <th>Delete</th>
         </tr>
@@ -20,11 +21,12 @@
         @foreach (var item in ViewBag.EventsList)
         {
         <tr>
-            <td>@item.Name</td>
+            <td>@item.Title</td>
             <td>@item.Location</td>
-            <td>@item.Text</td>
-            <td>@Html.ActionLink("More Information", "Details", new { id = item.Id }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-            <td>@Html.ActionLink("Deleting", "Delete", new { id = item.Id }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@item.Period</td>
+            <td>@item.Description</td>
+            <td>@Html.ActionLink("More Information", "Details", new { id = item.EventId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@Html.ActionLink("Deleting", "Delete", new { id = item.EventId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
         </tr>
         }
     </tbody>

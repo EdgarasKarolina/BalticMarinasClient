@@ -26,7 +26,6 @@ namespace BalticMarinasClient.Controllers
         {
             eventClient.DeleteEventById(id);
             return RedirectToAction("Index");
-            //return View();
         }
     }
 }

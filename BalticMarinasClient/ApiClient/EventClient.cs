@@ -74,17 +74,15 @@ namespace BalticMarinasClient.ApiClient
             return eventResult;
         }
 
-        public async void DeleteEventById(int? id)
+        public async void DeleteEventById(int? eventId)
         {
-            var route = id;
-
             using (var client = new HttpClient())
             {
                 client.BaseAddress = new Uri(this.serviceBase);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.DeleteAsync(serviceBase + "/" + id);
+                HttpResponseMessage response = await client.DeleteAsync(serviceBase + "/" + eventId);
                 response.EnsureSuccessStatusCode();
             }
         }
