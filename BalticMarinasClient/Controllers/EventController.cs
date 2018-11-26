@@ -28,7 +28,13 @@ namespace BalticMarinasClient.Controllers
             return RedirectToAction("Index");
         }
 
-        public IActionResult CreateEvent(string title, string location, string period, string description)
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(string title, string location, string period, string description)
         {
             Event newEvent = new Event() { Title = title, Location = location, Period = period, Description = description };
             eventClient.CreateEvent(newEvent);
