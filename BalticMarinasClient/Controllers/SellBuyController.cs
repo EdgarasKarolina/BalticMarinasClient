@@ -28,9 +28,9 @@ namespace BalticMarinasClient.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(string title, string category, decimal price, string madeYear, string description, int userId)
+        public IActionResult Create(string title, string category, decimal price, string madeYear, string description)
         {
-            SoldItem soldItem = new SoldItem() { Title = title, Category = category, Price = price, MadeYear = madeYear, Description = description, UserId = userId };
+            SoldItem soldItem = new SoldItem() { Title = title, Category = category, Price = price, MadeYear = madeYear, Description = description, UserId = 1 };
             sellBuyClient.CreateSoldItem(soldItem);
             return RedirectToAction("Index", "Home");
         }

@@ -1,0 +1,42 @@
+﻿
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h2>Sell new item</h2>
+
+@using (Html.BeginForm("Create", "SellBuy", FormMethod.Post))
+
+{
+    <p>
+        <div class="row">
+            <div class="col-md-9" style="display:inline-block">
+                <div class="row">
+                    <div class="col-md-6" id="search-inputs-div">
+                        <br />
+                        @Html.DisplayName("Title")
+                        @Html.TextBox("title", "")
+                        <br />
+                        @Html.DisplayName("Category")
+                        @Html.TextBox("category", "")
+                        <br />
+                        @Html.DisplayName("Price")
+                        @Html.TextBox("price", "")
+                        <br />
+                        @Html.DisplayName("MadeYear")
+                        @Html.TextBox("madeYear", "")
+                        <br />
+                        @Html.DisplayName("Description")
+                        @Html.TextBox("description", "")
+                        <br />
+                    </div>
+                    <div class="col-md-6" id="search-projects-buttons">
+                        <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> @Html.DisplayName("Create Sold Item")</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </p>
+}
+

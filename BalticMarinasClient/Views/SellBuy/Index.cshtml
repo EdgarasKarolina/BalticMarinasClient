@@ -6,6 +6,8 @@
 
 <h2>Sold Items</h2>
 
+<td>@Html.ActionLink("New", "Create", "SellBuy")</td>
+
 <table class="table">
     <thead>
         <tr>
@@ -27,6 +29,7 @@
             <td>@item.MadeYear</td>
             <td>@item.Description</td>
             <td>@Html.ActionLink("More Information", "Details", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
         </tr>
         }
     </tbody>

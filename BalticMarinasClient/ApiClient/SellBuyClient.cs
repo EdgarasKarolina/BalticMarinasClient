@@ -11,7 +11,7 @@ namespace BalticMarinasClient.ApiClient
 {
     public class SellBuyClient
     {
-        private string soldItemServiceBase = "https://localhost:44389/api/solditem/";
+        private string soldItemServiceBase = "https://localhost:44389/api/solditem";
 
         public async Task<ObservableCollection<SoldItem>> GetAllSoldItems()
         {
@@ -54,7 +54,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = soldItemServiceBase + soldItemId;
+                var urlAddress = soldItemServiceBase + "/" + soldItemId;
 
                 HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
                 if (response.IsSuccessStatusCode)
@@ -98,7 +98,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.DeleteAsync(soldItemServiceBase + soldItemId);
+                HttpResponseMessage response = await client.DeleteAsync(soldItemServiceBase + "/" + soldItemId);
                 response.EnsureSuccessStatusCode();
             }
         }
