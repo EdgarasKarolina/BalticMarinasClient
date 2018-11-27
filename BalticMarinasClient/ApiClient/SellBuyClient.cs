@@ -4,13 +4,14 @@ using System;
 using System.Collections.ObjectModel;
 using System.Net.Http;
 using System.Net.Http.Headers;
+using System.Text;
 using System.Threading.Tasks;
 
 namespace BalticMarinasClient.ApiClient
 {
     public class SellBuyClient
     {
-        private string serviceBase = "https://localhost:44389/api/solditem";
+        private string soldItemServiceBase = "https://localhost:44389/api/solditem/";
 
         public async Task<ObservableCollection<SoldItem>> GetAllSoldItems()
         {
@@ -18,11 +19,11 @@ namespace BalticMarinasClient.ApiClient
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(this.serviceBase);
+                client.BaseAddress = new Uri(this.soldItemServiceBase);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = serviceBase;
+                var urlAddress = soldItemServiceBase;
 
                 try
                 {
@@ -49,11 +50,11 @@ namespace BalticMarinasClient.ApiClient
 
             using (var client = new HttpClient())
             {
-                client.BaseAddress = new Uri(this.serviceBase);
+                client.BaseAddress = new Uri(this.soldItemServiceBase);
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = serviceBase + "/" + soldItemId;
+                var urlAddress = soldItemServiceBase + soldItemId;
 
                 HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
                 if (response.IsSuccessStatusCode)
@@ -72,6 +73,34 @@ namespace BalticMarinasClient.ApiClient
             }
 
             return soldItemResult;
+        }
+
+        public async void CreateSoldItem(SoldItem soldItem)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.soldItemServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var json = JsonConvert.SerializeObject(soldItem);
+
+                HttpResponseMessage response = await client.PostAsync(soldItemServiceBase, new StringContent(json, Encoding.UTF8, "application/json"));
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
+        public async void DeleteSoldItemById(int? soldItemId)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.soldItemServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.DeleteAsync(soldItemServiceBase + soldItemId);
+                response.EnsureSuccessStatusCode();
+            }
         }
     }
 }
