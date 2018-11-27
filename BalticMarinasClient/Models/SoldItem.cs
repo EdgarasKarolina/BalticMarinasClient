@@ -4,25 +4,25 @@ namespace BalticMarinasClient.Models
 {
     public class SoldItem
     {
-        [JsonProperty("id")]
-        public int Id { get; set; }
+        [JsonProperty("SoldItemId")]
+        public int SoldItemId { get; set; }
 
-        [JsonProperty("name")]
-        public string Name { get; set; }
+        [JsonProperty("Title")]
+        public string Title { get; set; }
 
-        [JsonProperty("type")]
-        public string Type { get; set; }
+        [JsonProperty("Category")]
+        public string Category { get; set; }
 
-        [JsonProperty("price")]
-        public int Price { get; set; }
+        [JsonProperty("Price")]
+        public decimal Price { get; set; }
 
-        [JsonProperty("year")]
-        public string Year { get; set; }
+        [JsonProperty("MadeYear")]
+        public string MadeYear { get; set; }
 
-        [JsonProperty("description")]
+        [JsonProperty("Description")]
         public string Description { get; set; }
 
-        [JsonProperty("sold")]
-        public int Sold { get; set; }
+        [JsonProperty("UserId")]
+        public int UserId { get; set; }
     }
 }
