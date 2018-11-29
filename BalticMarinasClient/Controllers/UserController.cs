@@ -33,28 +33,20 @@ namespace BalticMarinasClient.Controllers
         [HttpPost]
         public IActionResult Login(string userName, string userPassword)
         {
-            bool isUservalid = false;
-
-            int count = userClient.AuthenticateUser(userName, userPassword).Result;
+            int ifUserValid = userClient.AuthenticateUser(userName, userPassword).Result;
             
-            if(count > 0)
+            if(ifUserValid > 0)
             {
-                isUservalid = true;
-            }
+                int userId = userClient.GetUserId(userName, userPassword).Result;
 
-
-
-            if(isUservalid)
-            {
                 var claims = new List<Claim>();
-
                 claims.Add(new Claim(ClaimTypes.Name, userName));
                 claims.Add(new Claim(ClaimTypes.Role, "User"));
-                claims.Add(new Claim("UserId", "User"));
+                claims.Add(new Claim("UserId", userId.ToString()));
 
                 var identity = new ClaimsIdentity(
-            claims, CookieAuthenticationDefaults.
-                AuthenticationScheme);
+                    claims, CookieAuthenticationDefaults.
+                        AuthenticationScheme);
 
                 var principal = new ClaimsPrincipal(identity);
 
@@ -63,23 +55,20 @@ namespace BalticMarinasClient.Controllers
 
                 HttpContext.SignInAsync(
                     CookieAuthenticationDefaults.
-        AuthenticationScheme,
-                    principal, props).Wait();
+                        AuthenticationScheme,
+                            principal, props).Wait();
 
-
-                string userName3 = HttpContext.User.Identity.Name;
-                return RedirectToAction("Index", "Weather");
+                return RedirectToAction("Index", "Home");
             }
 
-            return RedirectToAction("About", "Home");
+            else { return RedirectToAction("Index", "Home"); }
         }
 
-        [HttpPost]
         public IActionResult Logout()
         {
             HttpContext.SignOutAsync(
-        CookieAuthenticationDefaults.AuthenticationScheme);
-            return RedirectToAction("Login", "User");
+                CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Index", "Home");
         }
     }
 }
