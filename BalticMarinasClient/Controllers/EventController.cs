@@ -1,5 +1,6 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BalticMarinasClient.Controllers
@@ -22,17 +23,20 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int? id)
         {
             eventClient.DeleteEventById(id);
             return RedirectToAction("Index");
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "Admin")]
         [HttpPost]
         public IActionResult Create(string title, string location, string period, string description)
         {

@@ -1,5 +1,6 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BalticMarinasClient.Controllers
@@ -9,6 +10,7 @@ namespace BalticMarinasClient.Controllers
         BookMarinaClient eventClient = new BookMarinaClient();
         EmailClient emailClient = new EmailClient();
 
+        [Authorize(Roles = "User")]
         public IActionResult Reserve(int berthId, int customerId, string checkIn, string checkOut)
         {
             Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
@@ -17,6 +19,7 @@ namespace BalticMarinasClient.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize(Roles = "User")]
         public IActionResult PersonalInformation(int berthId, int customerId, string checkIn, string checkOut)
         {
             ViewBag.BerthId = berthId;
@@ -26,6 +29,7 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
+        [Authorize(Roles = "User")]
         public IActionResult Payment(int berthId, int customerId, string checkIn, string checkOut)
         {
             ViewBag.BerthId = berthId;

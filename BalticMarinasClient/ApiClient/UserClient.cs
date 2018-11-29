@@ -64,7 +64,6 @@ namespace BalticMarinasClient.ApiClient
                         result = await response.Content.ReadAsStringAsync();
                     }
 
-                    //userId = JsonConvert.DeserializeObject<int>(result);
                     userId = JsonConvert.DeserializeObject<Tuple<int, int>>(result);
                     return userId;
                 }

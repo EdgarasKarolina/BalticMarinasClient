@@ -1,5 +1,6 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BalticMarinasClient.Controllers
@@ -22,11 +23,13 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
+        [Authorize(Roles = "User")]
         public IActionResult Create()
         {
             return View();
         }
 
+        [Authorize(Roles = "User")]
         [HttpPost]
         public IActionResult Create(string title, string category, decimal price, string madeYear, string description)
         {
@@ -35,6 +38,7 @@ namespace BalticMarinasClient.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        [Authorize(Roles = "Admin")]
         public IActionResult Delete(int? id)
         {
             sellBuyClient.DeleteSoldItemById(id);
