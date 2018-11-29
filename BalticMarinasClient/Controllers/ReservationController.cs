@@ -22,7 +22,6 @@ namespace BalticMarinasClient.Controllers
         }
 
         [Authorize(Roles = "User")]
-        [HttpPost]
         public IActionResult Reserve(int berthId, string checkIn, string checkOut)
         {
             int customerId = Int32.Parse(User.FindFirst("UserId").Value);
