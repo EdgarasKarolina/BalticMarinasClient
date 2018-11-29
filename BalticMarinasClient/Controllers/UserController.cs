@@ -24,25 +24,33 @@ namespace BalticMarinasClient.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        /*
         public IActionResult Login()
         {
             return View();
         }
-        */
+        
 
         [HttpPost]
-        public IActionResult Login()
+        public IActionResult Login(string userName, string userPassword)
         {
-            bool isUservalid = true;
+            bool isUservalid = false;
+
+            int count = userClient.AuthenticateUser(userName, userPassword).Result;
+            
+            if(count > 0)
+            {
+                isUservalid = true;
+            }
+
+
 
             if(isUservalid)
             {
                 var claims = new List<Claim>();
 
-                claims.Add(new Claim(ClaimTypes.Name, "Jonas"));
-
+                claims.Add(new Claim(ClaimTypes.Name, userName));
                 claims.Add(new Claim(ClaimTypes.Role, "User"));
+                claims.Add(new Claim("UserId", "User"));
 
                 var identity = new ClaimsIdentity(
             claims, CookieAuthenticationDefaults.
@@ -59,7 +67,7 @@ namespace BalticMarinasClient.Controllers
                     principal, props).Wait();
 
 
-                string userName = HttpContext.User.Identity.Name;
+                string userName3 = HttpContext.User.Identity.Name;
                 return RedirectToAction("Index", "Weather");
             }
 
