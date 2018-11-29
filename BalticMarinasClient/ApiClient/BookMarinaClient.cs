@@ -246,7 +246,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = reservationServiceBase + "/" + customerId;
+                var urlAddress = reservationServiceBase + customerId;
 
                 try
                 {

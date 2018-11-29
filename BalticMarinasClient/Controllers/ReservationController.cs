@@ -12,8 +12,10 @@ namespace BalticMarinasClient.Controllers
         EmailClient emailClient = new EmailClient();
 
         [Authorize(Roles = "User")]
-        public IActionResult Index(int customerId)
+        public IActionResult Index()
         {
+            int customerId = Int32.Parse(User.FindFirst("UserId").Value);
+
             var items = bookmarinaClient.GetAllReservationsByCustomerId(customerId).Result;
             ViewBag.ItemsList = items;
             return View();
