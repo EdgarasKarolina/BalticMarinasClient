@@ -15,6 +15,7 @@ namespace BalticMarinasClient.ApiClient
         private string berthServiceBase = "https://localhost:44300/api/berth";
         private string reservationServiceBase = "https://localhost:44300/api/reservation/";
 
+        #region Marinas methods
         public async Task<ObservableCollection<Marina>> GetAllMarinas()
         {
             var result = string.Empty;
@@ -77,6 +78,38 @@ namespace BalticMarinasClient.ApiClient
             return marinaResult;
         }
 
+        public async Task<ObservableCollection<Marina>> GetMarinasByCountry(string country)
+        {
+            var result = string.Empty;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.marinaServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = marinaServiceBase + "/" + "country" + "/" + country;
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    var list = JsonConvert.DeserializeObject<ObservableCollection<Marina>>(result);
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+        #endregion
+
+        #region Berths methods
         public async Task<ObservableCollection<Berth>> GetAllBerths()
         {
             var result = string.Empty;
@@ -169,36 +202,6 @@ namespace BalticMarinasClient.ApiClient
             return berthResult;
         }
 
-        public async Task<ObservableCollection<Marina>> GetMarinasByCountry(string country)
-        {
-            var result = string.Empty;
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(this.marinaServiceBase);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                var urlAddress = marinaServiceBase + "/" + "country" + "/" + country;
-
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                    }
-
-                    var list = JsonConvert.DeserializeObject<ObservableCollection<Marina>>(result);
-                    return list;
-                }
-                catch (Exception e)
-                {
-                    throw new Exception($"Error: {e.StackTrace}");
-                }
-            }
-        }
-
         public async Task<ObservableCollection<Berth>> GetAvailableBerthsByMarina(int? marinaId, string checkIn, string checkOut)
         {
             var result = string.Empty;
@@ -229,6 +232,40 @@ namespace BalticMarinasClient.ApiClient
             }
         }
 
+        #endregion
+
+        #region Reservation methods
+
+        public async Task<ObservableCollection<Reservation>> GetAllReservationsByCustomerId(int customerId)
+        {
+            var result = string.Empty;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.reservationServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = reservationServiceBase + "/" + customerId;
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    var list = JsonConvert.DeserializeObject<ObservableCollection<Reservation>>(result);
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+
         public async void CreateReservation(Reservation reservation)
         {
             using (var client = new HttpClient())
@@ -243,5 +280,6 @@ namespace BalticMarinasClient.ApiClient
                 response.EnsureSuccessStatusCode();
             }
         }
+        #endregion
     }
 }

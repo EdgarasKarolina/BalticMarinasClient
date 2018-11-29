@@ -8,16 +8,25 @@ namespace BalticMarinasClient.Controllers
 {
     public class ReservationController : Controller
     {
-        BookMarinaClient eventClient = new BookMarinaClient();
+        BookMarinaClient bookmarinaClient = new BookMarinaClient();
         EmailClient emailClient = new EmailClient();
 
         [Authorize(Roles = "User")]
+        public IActionResult Index(int customerId)
+        {
+            var items = bookmarinaClient.GetAllReservationsByCustomerId(customerId).Result;
+            ViewBag.ItemsList = items;
+            return View();
+        }
+
+        [Authorize(Roles = "User")]
+        [HttpPost]
         public IActionResult Reserve(int berthId, string checkIn, string checkOut)
         {
             int customerId = Int32.Parse(User.FindFirst("UserId").Value);
 
             Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
-            eventClient.CreateReservation(reservation);
+            bookmarinaClient.CreateReservation(reservation);
             emailClient.SendConfirmationEmail("Succes", "edgarasvilija@gmail.com");
             return RedirectToAction("Index", "Home");
         }
