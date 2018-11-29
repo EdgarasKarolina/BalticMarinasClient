@@ -2,6 +2,7 @@
 using BalticMarinasClient.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BalticMarinasClient.Controllers
 {
@@ -11,8 +12,10 @@ namespace BalticMarinasClient.Controllers
         EmailClient emailClient = new EmailClient();
 
         [Authorize(Roles = "User")]
-        public IActionResult Reserve(int berthId, int customerId, string checkIn, string checkOut)
+        public IActionResult Reserve(int berthId, string checkIn, string checkOut)
         {
+            int customerId = Int32.Parse(User.FindFirst("UserId").Value);
+
             Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
             eventClient.CreateReservation(reservation);
             emailClient.SendConfirmationEmail("Succes", "edgarasvilija@gmail.com");
@@ -20,20 +23,18 @@ namespace BalticMarinasClient.Controllers
         }
 
         [Authorize(Roles = "User")]
-        public IActionResult PersonalInformation(int berthId, int customerId, string checkIn, string checkOut)
+        public IActionResult PersonalInformation(int berthId, string checkIn, string checkOut)
         {
             ViewBag.BerthId = berthId;
-            ViewBag.CustomerId = customerId;
             ViewBag.CheckIn = checkIn;
             ViewBag.CheckOut = checkOut;
             return View();
         }
 
         [Authorize(Roles = "User")]
-        public IActionResult Payment(int berthId, int customerId, string checkIn, string checkOut)
+        public IActionResult Payment(int berthId, string checkIn, string checkOut)
         {
             ViewBag.BerthId = berthId;
-            ViewBag.CustomerId = customerId;
             ViewBag.CheckIn = checkIn;
             ViewBag.CheckOut = checkOut;
             return View();
