@@ -43,10 +43,10 @@ namespace BalticMarinasClient.ApiClient
             }
         }
 
-        public async Task<int> GetUserId(string userName, string password)
+        public async Task<Tuple<int, int>> GetUserIdAndIsAdmin(string userName, string password)
         {
             var result = string.Empty;
-            var userId = 0;
+            Tuple<int, int> userId = null ;
 
             using (var client = new HttpClient())
             {
@@ -64,7 +64,8 @@ namespace BalticMarinasClient.ApiClient
                         result = await response.Content.ReadAsStringAsync();
                     }
 
-                    userId = JsonConvert.DeserializeObject<int>(result);
+                    //userId = JsonConvert.DeserializeObject<int>(result);
+                    userId = JsonConvert.DeserializeObject<Tuple<int, int>>(result);
                     return userId;
                 }
                 catch (Exception e)

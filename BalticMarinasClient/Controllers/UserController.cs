@@ -29,7 +29,6 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
         
-
         [HttpPost]
         public IActionResult Login(string userName, string userPassword)
         {
@@ -37,11 +36,19 @@ namespace BalticMarinasClient.Controllers
             
             if(ifUserValid > 0)
             {
-                int userId = userClient.GetUserId(userName, userPassword).Result;
+                int userId = userClient.GetUserIdAndIsAdmin(userName, userPassword).Result.Item1;
+                int isAdmin = userClient.GetUserIdAndIsAdmin(userName, userPassword).Result.Item2;
 
                 var claims = new List<Claim>();
                 claims.Add(new Claim(ClaimTypes.Name, userName));
-                claims.Add(new Claim(ClaimTypes.Role, "User"));
+                if(isAdmin == 0)
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, "User"));
+                }
+                else
+                {
+                    claims.Add(new Claim(ClaimTypes.Role, "Admin"));
+                }
                 claims.Add(new Claim("UserId", userId.ToString()));
 
                 var identity = new ClaimsIdentity(
