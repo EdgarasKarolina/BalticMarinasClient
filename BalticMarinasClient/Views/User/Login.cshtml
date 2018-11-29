@@ -1,0 +1,34 @@
+﻿
+@{
+    ViewData["Title"] = "Login";
+}
+
+<h2>Login</h2>
+
+@using (Html.BeginForm("Login", "User", FormMethod.Post))
+
+{
+    <p>
+        <div class="row">
+            <div class="col-md-9" style="display:inline-block">
+                <div class="row">
+                    <div class="col-md-6" id="search-inputs-div">
+                        <br />
+                        @Html.DisplayName("Username")
+                        @Html.TextBox("userName", "")
+                        <br />
+                        @Html.DisplayName("Password")
+                        @Html.TextBox("userPassword", "")
+                        <br />
+                    </div>
+                    <div class="col-md-6" id="search-projects-buttons">
+                        <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Login")</button>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </p>
+}
+
+

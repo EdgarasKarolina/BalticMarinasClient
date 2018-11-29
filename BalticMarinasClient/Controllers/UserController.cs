@@ -1,6 +1,10 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
+using Microsoft.AspNetCore.Authentication;
+using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System.Collections.Generic;
+using System.Security.Claims;
 
 namespace BalticMarinasClient.Controllers
 {
@@ -18,6 +22,56 @@ namespace BalticMarinasClient.Controllers
             User user = new User() { UserName = userName, UserPassword = userPassword, FirstName = firstName, LastName = lastName, Email = email, PhoneNumber = phoneNumber, Country = country, IsAdmin = isAdmin};
             userClient.CreateUser(user);
             return RedirectToAction("Index", "Home");
+        }
+
+        /*
+        public IActionResult Login()
+        {
+            return View();
+        }
+        */
+
+        [HttpPost]
+        public IActionResult Login()
+        {
+            bool isUservalid = true;
+
+            if(isUservalid)
+            {
+                var claims = new List<Claim>();
+
+                claims.Add(new Claim(ClaimTypes.Name, "Jonas"));
+
+                claims.Add(new Claim(ClaimTypes.Role, "User"));
+
+                var identity = new ClaimsIdentity(
+            claims, CookieAuthenticationDefaults.
+                AuthenticationScheme);
+
+                var principal = new ClaimsPrincipal(identity);
+
+                var props = new AuthenticationProperties();
+                props.IsPersistent = true;
+
+                HttpContext.SignInAsync(
+                    CookieAuthenticationDefaults.
+        AuthenticationScheme,
+                    principal, props).Wait();
+
+
+                string userName = HttpContext.User.Identity.Name;
+                return RedirectToAction("Index", "Weather");
+            }
+
+            return RedirectToAction("About", "Home");
+        }
+
+        [HttpPost]
+        public IActionResult Logout()
+        {
+            HttpContext.SignOutAsync(
+        CookieAuthenticationDefaults.AuthenticationScheme);
+            return RedirectToAction("Login", "User");
         }
     }
 }
