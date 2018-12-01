@@ -71,10 +71,16 @@
                     <li><a asp-area="" asp-controller="Event" asp-action="Index">Events</a></li>
                     <li><a asp-area="" asp-controller="Weather" asp-action="Index">Weather</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About">About</a></li>
-                    <li><a asp-area="" asp-controller="User" asp-action="RegistrationForm">Register</a></li>
-                    <li><a asp-area="" asp-controller="User" asp-action="Login">Login</a></li>
-                    <li><a asp-area="" asp-controller="User" asp-action="Logout">Logout</a></li>
-                    <li><a asp-area="" asp-controller="Reservation" asp-action="Index">UsersReservations</a></li>
+                    @if (!User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="User" asp-action="RegistrationForm">Register</a></li>
+                        <li><a asp-area="" asp-controller="User" asp-action="Login">Login</a></li>
+                    }
+                    @if (User.Identity.IsAuthenticated)
+                    {
+                        <li><a asp-area="" asp-controller="Reservation" asp-action="Index">Panel</a></li>
+                        <li><a asp-area="" asp-controller="User" asp-action="Logout">Logout</a></li>
+                    }
                 </ul>
             </div>
         </div>
