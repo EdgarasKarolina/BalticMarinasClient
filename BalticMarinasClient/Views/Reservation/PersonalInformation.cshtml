@@ -15,10 +15,10 @@
                 <div class="col-md-6" id="search-inputs-div">
                     <br />
                     @Html.DisplayName("CheckIn Day")
-                    @Html.TextBox("checkIn", (string) ViewBag.CheckIn, new { @readonly = "readonly" })
+                    @Html.TextBox("checkIn", (string)ViewBag.CheckIn, new { @readonly = "readonly" })
                     <br />
                     @Html.DisplayName("CheckOut Day")
-                    @Html.TextBox("checkOut", (string) ViewBag.CheckOut, new { @readonly = "readonly" })
+                    @Html.TextBox("checkOut", (string)ViewBag.CheckOut, new { @readonly = "readonly" })
                     <br />
                     @Html.DisplayName("Name")
                     @Html.TextBox("name", "", new { @id = "to-price-textbox" })
@@ -26,7 +26,10 @@
                     @Html.DisplayName("Surname")
                     @Html.TextBox("surname", "", new { @id = "to-price-textbox" })
                     <br />
-                    @Html.Hidden("berthId", (int) ViewBag.BerthId)
+                    @Html.DisplayName("Email")
+                    @Html.TextBox("email", (string)ViewBag.Email, new { @id = "to-price-textbox" })
+                    <br />
+                    @Html.Hidden("berthId", (int)ViewBag.BerthId)
                     <br />
                 </div>
                 <div class="col-md-6" id="search-projects-buttons">

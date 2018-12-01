@@ -1,6 +1,7 @@
 ﻿using BalticMarinasClient.Models;
 using Newtonsoft.Json;
 using System;
+using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -42,11 +43,11 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
-
-        public async Task<Tuple<int, int>> GetUserIdAndIsAdmin(string userName, string password)
+        
+        public async Task<List<object>> GetUserIdEmailIsAdmin(string userName, string password)
         {
             var result = string.Empty;
-            Tuple<int, int> userId = null ;
+            List<object> list = null;
 
             using (var client = new HttpClient())
             {
@@ -64,8 +65,8 @@ namespace BalticMarinasClient.ApiClient
                         result = await response.Content.ReadAsStringAsync();
                     }
 
-                    userId = JsonConvert.DeserializeObject<Tuple<int, int>>(result);
-                    return userId;
+                    list = JsonConvert.DeserializeObject<List<object>>(result);
+                    return list;
                 }
                 catch (Exception e)
                 {

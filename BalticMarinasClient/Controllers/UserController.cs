@@ -3,6 +3,7 @@ using BalticMarinasClient.Models;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Authentication.Cookies;
 using Microsoft.AspNetCore.Mvc;
+using System;
 using System.Collections.Generic;
 using System.Security.Claims;
 
@@ -36,8 +37,9 @@ namespace BalticMarinasClient.Controllers
             
             if(ifUserValid > 0)
             {
-                int userId = userClient.GetUserIdAndIsAdmin(userName, userPassword).Result.Item1;
-                int isAdmin = userClient.GetUserIdAndIsAdmin(userName, userPassword).Result.Item2;
+                int userId = Convert.ToInt32(userClient.GetUserIdEmailIsAdmin(userName, userPassword).Result[0]);
+                string email = userClient.GetUserIdEmailIsAdmin(userName, userPassword).Result[1].ToString();
+                int isAdmin = Convert.ToInt32(userClient.GetUserIdEmailIsAdmin(userName, userPassword).Result[2]);
 
                 var claims = new List<Claim>();
                 claims.Add(new Claim(ClaimTypes.Name, userName));
@@ -50,6 +52,7 @@ namespace BalticMarinasClient.Controllers
                     claims.Add(new Claim(ClaimTypes.Role, "Admin"));
                 }
                 claims.Add(new Claim("UserId", userId.ToString()));
+                claims.Add(new Claim("Email", email));
 
                 var identity = new ClaimsIdentity(
                     claims, CookieAuthenticationDefaults.
