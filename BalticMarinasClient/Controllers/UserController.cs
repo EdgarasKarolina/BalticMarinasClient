@@ -18,11 +18,20 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
-        public IActionResult Register(string userName, string userPassword, string firstName, string lastName, string email, string phoneNumber, string country, int isAdmin)
+        public IActionResult Register(string userName, string userPassword, string repeatedUserPassword, string firstName, string lastName, string email, string phoneNumber, string country, int isAdmin)
         {
-            User user = new User() { UserName = userName, UserPassword = userPassword, FirstName = firstName, LastName = lastName, Email = email, PhoneNumber = phoneNumber, Country = country, IsAdmin = isAdmin};
-            userClient.Register(user);
-            return RedirectToAction("Index", "Home");
+            if(userPassword.Equals(repeatedUserPassword))
+            {
+                User user = new User() { UserName = userName, UserPassword = userPassword, FirstName = firstName, LastName = lastName, Email = email, PhoneNumber = phoneNumber, Country = country, IsAdmin = isAdmin };
+                userClient.Register(user);
+                return RedirectToAction("Index", "Home");
+            }
+            else
+            {
+                return RedirectToAction("RegistrationForm", "User");
+            }
+
+
         }
 
         public IActionResult Login()
