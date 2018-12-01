@@ -75,7 +75,7 @@ namespace BalticMarinasClient.ApiClient
             }
         }
 
-        public async void CreateUser(User user)
+        public async void Register(User user)
         {
             using (var client = new HttpClient())
             {
