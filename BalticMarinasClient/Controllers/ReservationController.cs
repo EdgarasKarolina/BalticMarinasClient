@@ -33,15 +33,23 @@ namespace BalticMarinasClient.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize(Roles = "User")]
         public IActionResult PersonalInformation(int berthId, string checkIn, string checkOut)
         {
-            string email = User.FindFirst("Email").Value;
-            ViewBag.BerthId = berthId;
-            ViewBag.CheckIn = checkIn;
-            ViewBag.CheckOut = checkOut;
-            ViewBag.Email = email;
-            return View();
+            bool isLoggedIn = HttpContext.User.Identity.IsAuthenticated;
+
+            if(HttpContext.User.Identity.IsAuthenticated == true)
+            {
+                string email = User.FindFirst("Email").Value;
+                ViewBag.BerthId = berthId;
+                ViewBag.CheckIn = checkIn;
+                ViewBag.CheckOut = checkOut;
+                ViewBag.Email = email;
+                return View();
+            }
+            else
+            {
+                return RedirectToAction("LoginOrRegister", "User");
+            }
         }
 
         [Authorize(Roles = "User")]

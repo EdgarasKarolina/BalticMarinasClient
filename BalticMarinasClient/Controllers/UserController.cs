@@ -80,5 +80,10 @@ namespace BalticMarinasClient.Controllers
                 CookieAuthenticationDefaults.AuthenticationScheme);
             return RedirectToAction("Index", "Home");
         }
+
+        public IActionResult LoginOrRegister()
+        {
+            return View();
+        }
     }
 }
