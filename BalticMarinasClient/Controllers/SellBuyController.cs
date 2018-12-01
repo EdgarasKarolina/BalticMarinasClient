@@ -2,6 +2,7 @@
 using BalticMarinasClient.Models;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using System;
 
 namespace BalticMarinasClient.Controllers
 {
@@ -33,7 +34,9 @@ namespace BalticMarinasClient.Controllers
         [HttpPost]
         public IActionResult Create(string title, string category, decimal price, string madeYear, string description)
         {
-            SoldItem soldItem = new SoldItem() { Title = title, Category = category, Price = price, MadeYear = madeYear, Description = description, UserId = 1 };
+            int userId = Int32.Parse(User.FindFirst("UserId").Value);
+
+            SoldItem soldItem = new SoldItem() { Title = title, Category = category, Price = price, MadeYear = madeYear, Description = description, UserId = userId };
             sellBuyClient.CreateSoldItem(soldItem);
             return RedirectToAction("Index", "Home");
         }
