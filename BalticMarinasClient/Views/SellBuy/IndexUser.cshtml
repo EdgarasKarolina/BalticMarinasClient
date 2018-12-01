@@ -1,0 +1,32 @@
+﻿
+@{
+    ViewData["Title"] = "IndexUser";
+}
+
+<h2>IndexUser</h2>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>Title</th>
+            <th>Category</th>
+            <th>Price</th>
+            <th>Year</th>
+            <th>Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in ViewBag.ItemsList)
+        {
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Category</td>
+            <td>@item.Price</td>
+            <td>@item.MadeYear</td>
+            <td>@item.Description</td>
+        </tr>
+        }
+    </tbody>
+</table>
+
+

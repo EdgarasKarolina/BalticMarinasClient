@@ -25,6 +25,16 @@ namespace BalticMarinasClient.Controllers
         }
 
         [Authorize(Roles = "User")]
+        public IActionResult IndexUser()
+        {
+            int userId = Int32.Parse(User.FindFirst("UserId").Value);
+
+            var items = sellBuyClient.GetAllSoldItemsByUserId(userId).Result;
+            ViewBag.ItemsList = items;
+            return View();
+        }
+
+        [Authorize(Roles = "User")]
         public IActionResult Create()
         {
             return View();

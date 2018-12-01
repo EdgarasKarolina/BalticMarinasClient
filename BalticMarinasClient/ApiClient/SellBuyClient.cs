@@ -43,6 +43,36 @@ namespace BalticMarinasClient.ApiClient
             }
         }
 
+        public async Task<ObservableCollection<SoldItem>> GetAllSoldItemsByUserId(int userId)
+        {
+            var result = string.Empty;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.soldItemServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = soldItemServiceBase + "/" + "user" + "/" + userId;
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    var list = JsonConvert.DeserializeObject<ObservableCollection<SoldItem>>(result);
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+
         public async Task<SoldItem> GetSoldItemById(int? soldItemId)
         {
             var result = string.Empty;
