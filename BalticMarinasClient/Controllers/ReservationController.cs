@@ -22,10 +22,9 @@ namespace BalticMarinasClient.Controllers
         }
 
         [Authorize(Roles = "User")]
-        public IActionResult Reserve(int berthId, string checkIn, string checkOut)
+        public IActionResult Reserve(int berthId, string checkIn, string checkOut, string email)
         {
             int customerId = Int32.Parse(User.FindFirst("UserId").Value);
-            string email = User.FindFirst("Email").Value;
 
             Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
             bookmarinaClient.CreateReservation(reservation);
@@ -53,11 +52,12 @@ namespace BalticMarinasClient.Controllers
         }
 
         [Authorize(Roles = "User")]
-        public IActionResult Payment(int berthId, string checkIn, string checkOut)
+        public IActionResult Payment(int berthId, string checkIn, string checkOut, string email)
         {
             ViewBag.BerthId = berthId;
             ViewBag.CheckIn = checkIn;
             ViewBag.CheckOut = checkOut;
+            ViewBag.Email = email;
             return View();
         }
     }
