@@ -1,5 +1,6 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
+using BalticMarinasClient.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -28,7 +29,7 @@ namespace BalticMarinasClient.Controllers
 
             Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
             bookmarinaClient.CreateReservation(reservation);
-            emailClient.SendConfirmationEmail("Succes", email);
+            emailClient.SendConfirmationEmail(Constants.ConfirmedEmailBody, email);
             return RedirectToAction("Index", "Home");
         }
 
