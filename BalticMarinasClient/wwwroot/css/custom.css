@@ -15,4 +15,19 @@ body {
     color: white;
 }
 
+.account-input {
+    width: 70%; 
+    padding: 12px 20px;
+    margin: 3px 0;
+    display: inline-block;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    box-sizing: border-box;
+}
+
+input[type=submit]:hover {
+    background-color: #45a049;
+}
+
+
  

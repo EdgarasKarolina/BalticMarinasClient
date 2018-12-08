@@ -6,45 +6,37 @@
 <h2>RegistrationForm</h2>
 
 @using (Html.BeginForm("Register", "User", FormMethod.Post))
-
 {
-    <p>
-        <div class="row">
-            <div class="col-md-9" style="display:inline-block">
-                <div class="row">
-                    <div class="col-md-6" id="search-inputs-div">
-                        <br />
-                        @Html.DisplayName("Username")
-                        @Html.TextBox("userName", "")
-                        <br />
-                        @Html.DisplayName("Password")
-                        @Html.TextBox("userPassword", "")
-                        <br />
-                        @Html.DisplayName("Repeat Password")
-                        @Html.TextBox("repeatedUserPassword", "")
-                        <br />
-                        @Html.DisplayName("First name")
-                        @Html.TextBox("firstName", "")
-                        <br />
-                        @Html.DisplayName("Last name")
-                        @Html.TextBox("lastName", "")
-                        <br />
-                        @Html.DisplayName("Email")
-                        @Html.TextBox("email", "")
-                        <br />
-                        @Html.DisplayName("Phone number")
-                        @Html.TextBox("phoneNumber", "")
-                        <br />
-                        @Html.DisplayName("Country")
-                        @Html.TextBox("country", "")
-                    </div>
-                    <div class="col-md-6" id="search-projects-buttons">
-                        <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Create Account")</button>
-                    </div>
+<p>
+    <div class="row">
+        <div class="col-md-9" style="display:inline-block">
+            <div class="row">
+                <div class="col-md-10">
+                    <br />
+                    @Html.TextBox("userName", "", new { @class = "account-input", placeholder = "Username" })
+                    <br />
+                    @Html.TextBox("userPassword", "", new { @class = "account-input", placeholder = "Password" })
+                    <br />
+                    @Html.TextBox("repeatedUserPassword", "", new { @class = "account-input", placeholder = "Repeat Password" })
+                    <br />
+                    @Html.TextBox("firstName", "", new { @class = "account-input", placeholder = "First name" })
+                    <br />
+                    @Html.TextBox("lastName", "", new { @class = "account-input", placeholder = "Last name" })
+                    <br />
+                    @Html.TextBox("email", "", new { @class = "account-input", placeholder = "Email" })
+                    <br />
+                    @Html.TextBox("phoneNumber", "", new { @class = "account-input", placeholder = "Phone number" })
+                    <br />
+                    @Html.TextBox("country", "", new { @class = "account-input", placeholder = "Country" })
+                    <br />
+                    <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Register")</button>
+                </div>
+                <div class="col-md-2">
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
-    </p>
+        <div class="col-md-3"></div>
+    </div>
+</p>
 }
 
