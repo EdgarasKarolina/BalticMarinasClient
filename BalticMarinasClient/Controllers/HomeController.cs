@@ -1,6 +1,8 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.AspNetCore.Mvc.Rendering;
+using System.Collections.Generic;
 using System.Diagnostics;
 
 namespace BalticMarinasClient.Controllers
@@ -13,6 +15,12 @@ namespace BalticMarinasClient.Controllers
 
         public IActionResult Index()
         {
+            List<SelectListItem> Locations = new List<SelectListItem>();
+            Locations.Add(new SelectListItem() { Text = "Lithuania", Value = "Lithuania" });
+            Locations.Add(new SelectListItem() { Text = "Latvia", Value = "Latvia" });
+            Locations.Add(new SelectListItem() { Text = "Estonia", Value = "Estonia" });
+
+            ViewBag.Locations = new SelectList(Locations, "Value", "Text");
             return View();
         }
 

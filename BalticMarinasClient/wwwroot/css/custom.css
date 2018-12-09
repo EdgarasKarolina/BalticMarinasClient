@@ -32,7 +32,7 @@ input[type=submit]:hover {
 #location-input {
     width: 100%;
     height: 34px;
-    padding: 12px 20px;
+    
     display: inline-block;
     border: 1px solid #ccc;
     border-radius: 4px;

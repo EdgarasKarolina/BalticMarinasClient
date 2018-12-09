@@ -32,7 +32,8 @@
             <div class="col-md-4" style="display:inline-block">
                 <div class="row">
                     <div class="col-md-8">
-                        @Html.TextBox("country", "", new { @id = "location-input", placeholder = "Location" })
+                       
+                        @Html.DropDownList("country", (SelectList)ViewBag.Locations, new { @id = "location-input" })
                     </div>
                     <div class="col-md-4">
                         <button type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Search")</button>
