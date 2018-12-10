@@ -30,7 +30,7 @@ namespace BalticMarinasClient.Controllers
             Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
             bookmarinaClient.CreateReservation(reservation);
             emailClient.SendConfirmationEmail(Constants.ConfirmedEmailBody, email);
-            return RedirectToAction("Index", "Home");
+            return RedirectToAction("Confirmation", "Reservation");
         }
 
         public IActionResult PersonalInformation(int berthId, string checkIn, string checkOut)
