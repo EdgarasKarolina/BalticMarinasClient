@@ -16,6 +16,7 @@ namespace BalticMarinasClient.Controllers
         public IActionResult Index()
         {
             List<SelectListItem> Locations = new List<SelectListItem>();
+            Locations.Add(new SelectListItem() { Text = "Select Location", Value = "Select Location" });
             Locations.Add(new SelectListItem() { Text = "Lithuania", Value = "Lithuania" });
             Locations.Add(new SelectListItem() { Text = "Latvia", Value = "Latvia" });
             Locations.Add(new SelectListItem() { Text = "Estonia", Value = "Estonia" });
