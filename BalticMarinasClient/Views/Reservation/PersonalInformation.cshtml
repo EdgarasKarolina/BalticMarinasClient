@@ -6,38 +6,57 @@
 <h2>Personal Information</h2>
 
 @using (Html.BeginForm("Payment", "Reservation", FormMethod.Get))
-
 {
 <p>
     <div class="row">
         <div class="col-md-9" style="display:inline-block">
             <div class="row">
-                <div class="col-md-6" id="search-inputs-div">
-                    <br />
-                    @Html.DisplayName("CheckIn Day")
-                    @Html.TextBox("checkIn", (string)ViewBag.CheckIn, new { @readonly = "readonly" })
-                    <br />
-                    @Html.DisplayName("CheckOut Day")
-                    @Html.TextBox("checkOut", (string)ViewBag.CheckOut, new { @readonly = "readonly" })
-                    <br />
-                    @Html.DisplayName("Name")
-                    @Html.TextBox("name", "", new { @id = "to-price-textbox" })
-                    <br />
-                    @Html.DisplayName("Surname")
-                    @Html.TextBox("surname", "", new { @id = "to-price-textbox" })
-                    <br />
-                    @Html.DisplayName("Email")
-                    @Html.TextBox("email", (string)ViewBag.Email, new { @id = "to-price-textbox" })
-                    <br />
+                <div class="col-md-6">
+                    <div>
+                        @Html.DisplayName("CheckIn Day")
+                        <br />
+                        @Html.TextBox("checkIn", (string)ViewBag.CheckIn, new { @readonly = "readonly", @class = "account-input" })
+                    </div>
+                    <div>
+                        @Html.DisplayName("CheckOut Day")
+                        <br />
+                        @Html.TextBox("checkOut", (string)ViewBag.CheckOut, new { @readonly = "readonly", @class = "account-input" })
+                    </div>
+                    <div>
+                        @Html.DisplayName("Phone number")
+                        <br />
+                        @Html.TextBox("phoneNumber", "", new { @class = "account-input" })
+                    </div>
                     @Html.Hidden("berthId", (int)ViewBag.BerthId)
-                    <br />
                 </div>
-                <div class="col-md-6" id="search-projects-buttons">
-                    <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Proceed to Payment")</button>
+                    <div class="col-md-6">
+                        <div>
+                            @Html.DisplayName("Name")
+                            <br />
+                            @Html.TextBox("name", "", new { @class = "account-input" })
+                        </div>
+                        <div>
+                            @Html.DisplayName("Surname")
+                            <br />
+                            @Html.TextBox("surname", "", new { @class = "account-input" })
+                        </div>
+                        <div>
+                            @Html.DisplayName("Email")
+                            <br />
+                            @Html.TextBox("email", (string)ViewBag.Email, new { @class = "account-input" })
+                        </div>
+                    </div>
+            </div>
+        </div>
+    </div>
+    <div class="row">
+        <div class="col-md-9" style="display:inline-block">
+            <div class="row">
+                <div class="col-md-6">
+                    <button style="width:70%; margin-top: 15px" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span style="display:block; float: right;" class="glyphicon glyphicon-menu-right"></span>  @Html.DisplayName("Proceed to Payment") </button>
                 </div>
             </div>
         </div>
-        <div class="col-md-3"></div>
     </div>
 </p>
 }
