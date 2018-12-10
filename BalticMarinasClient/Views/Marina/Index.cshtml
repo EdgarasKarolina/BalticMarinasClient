@@ -14,6 +14,8 @@
             <th>City</th>
             <th>Country</th>
             <th>Berths</th>
+            <th>Toilet</th>
+            <th>Shower</th>
             <th>Internet</th>
             <th>More</th>
         </tr>
@@ -28,7 +30,30 @@
             <td>@item.CityName</td>
             <td>@item.Country</td>
             <td>@item.TotalBerths</td>
-            <td>@item.IsInternet</td>
+            @if (item.IsToilet == 1)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
+            @if (item.IsShower == 1)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
+            @if (item.IsInternet == 1)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
             <td>@Html.ActionLink("More Information", "Details", new { id = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
         </tr>
         }
