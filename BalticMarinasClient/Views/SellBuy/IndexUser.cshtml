@@ -18,15 +18,16 @@
     <tbody>
         @foreach (var item in ViewBag.ItemsList)
         {
-        <tr>
-            <td>@item.Title</td>
-            <td>@item.Category</td>
-            <td>@item.Price</td>
-            <td>@item.MadeYear</td>
-            <td>@item.Description</td>
-        </tr>
+            <tr>
+                <td>@item.Title</td>
+                <td>@item.Category</td>
+                <td>@item.Price</td>
+                <td>@item.MadeYear</td>
+                <td>@item.Description</td>
+            </tr>
         }
     </tbody>
+    @Html.ActionLink("New advert", "Create", new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })
 </table>
 
 

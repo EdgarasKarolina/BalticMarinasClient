@@ -73,6 +73,7 @@
                     <li><a asp-area="" asp-controller="Weather" asp-action="Index" class="navbar-brand">Weather</a></li>
                     <li><a asp-area="" asp-controller="Home" asp-action="About" class="navbar-brand">About</a></li>
                     <li><a asp-area="" asp-controller="SellBuy" asp-action="IndexUser" class="navbar-brand">SoldItems</a></li>
+
                     @if (!User.Identity.IsAuthenticated)
                     {
                         <li><a asp-area="" asp-controller="User" asp-action="RegistrationForm" class="navbar-brand">Register</a></li>
@@ -82,8 +83,21 @@
                     {
                         <li><a asp-area="" asp-controller="Reservation" asp-action="Index" class="navbar-brand">Panel</a></li>
                         <li><a asp-area="" asp-controller="User" asp-action="Logout" class="navbar-brand">Logout</a></li>
-                    }
-                </ul>
+                        <li>
+                            <div class="dropdown">
+                                <button class="btn btn-default dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown">
+                                    Panel
+                                    <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu1">
+                                    <li><a asp-area="" asp-controller="Reservation" asp-action="Index" class="navbar-brand">Reservations</a></li>
+                                    <li><a asp-area="" asp-controller="SellBuy" asp-action="IndexUser" class="navbar-brand">Selling</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                            }
+
+</ul>
             </div>
         </div>
     </nav>
