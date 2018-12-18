@@ -51,7 +51,7 @@ namespace BalticMarinasClient.Controllers
             return RedirectToAction("Index", "Home");
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "Admin, User")]
         public IActionResult Delete(int? id)
         {
             sellBuyClient.DeleteSoldItemById(id);

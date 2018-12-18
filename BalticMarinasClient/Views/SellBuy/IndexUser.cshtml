@@ -18,13 +18,14 @@
     <tbody>
         @foreach (var item in ViewBag.ItemsList)
         {
-            <tr>
-                <td>@item.Title</td>
-                <td>@item.Category</td>
-                <td>@item.Price</td>
-                <td>@item.MadeYear</td>
-                <td>@item.Description</td>
-            </tr>
+        <tr>
+            <td>@item.Title</td>
+            <td>@item.Category</td>
+            <td>@item.Price</td>
+            <td>@item.MadeYear</td>
+            <td>@item.Description</td>
+            <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+        </tr>
         }
     </tbody>
     @Html.ActionLink("New advert", "Create", new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })
