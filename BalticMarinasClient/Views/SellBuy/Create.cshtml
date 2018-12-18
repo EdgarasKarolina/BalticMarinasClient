@@ -6,36 +6,46 @@
 <h2>Sell new item</h2>
 
 @using (Html.BeginForm("Create", "SellBuy", FormMethod.Post))
-
 {
     <p>
         <div class="row">
             <div class="col-md-9" style="display:inline-block">
                 <div class="row">
-                    <div class="col-md-6" id="search-inputs-div">
-                        <br />
-                        @Html.DisplayName("Title")
-                        @Html.TextBox("title", "")
-                        <br />
-                        @Html.DisplayName("Category")
-                        @Html.TextBox("category", "")
-                        <br />
-                        @Html.DisplayName("Price")
-                        @Html.TextBox("price", "")
-                        <br />
-                        @Html.DisplayName("MadeYear")
-                        @Html.TextBox("madeYear", "")
-                        <br />
-                        @Html.DisplayName("Description")
-                        @Html.TextBox("description", "")
+                    <div class="col-md-9">
+                        <div>
+                            @Html.DisplayName("Title")
+                            <br />
+                            @Html.TextBox("title", "", new { @class = "account-input" })
+                        </div>
+                        <div>
+                            @Html.DisplayName("Category")
+                            <br />
+                            @Html.TextBox("category", "", new { @class = "account-input" })
+                        </div>
+                        <div>
+                            @Html.DisplayName("Price")
+                            <br />
+                            @Html.TextBox("price", "", new { @class = "account-input" })
+                        </div>
+                        <div>
+                            @Html.DisplayName("Made Year")
+                            <br />
+                            @Html.TextBox("madeYear", "", new { @class = "account-input" })
+                        </div>
+                        <div>
+                            @Html.DisplayName("Description")
+                            <br />
+                            @Html.TextBox("description", "", new { @class = "account-input" })
+                        </div>
+                        <div>
+                            <button style="width:70%; margin-top: 15px" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-ok"></span> @Html.DisplayName("Finish")</button>
+                        </div>
                         <br />
                     </div>
-                    <div class="col-md-6" id="search-projects-buttons">
-                        <button style="width:70%" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> @Html.DisplayName("Create Sold Item")</button>
+                    <div class="col-md-3">
                     </div>
                 </div>
             </div>
-            <div class="col-md-3"></div>
         </div>
     </p>
 }
