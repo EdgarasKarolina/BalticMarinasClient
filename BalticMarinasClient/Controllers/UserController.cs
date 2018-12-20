@@ -13,25 +13,20 @@ namespace BalticMarinasClient.Controllers
     {
         UserClient userClient = new UserClient();
 
-        public IActionResult RegistrationForm()
+        public IActionResult Register()
         {
             return View();
         }
 
-        public IActionResult Register(string userName, string userPassword, string repeatedUserPassword, string firstName, string lastName, string email, string phoneNumber, string country, int isAdmin)
+        [HttpPost]
+        public IActionResult Register([Bind("UserName", "UserPassword", "FirstName", "LastName", "Email", "PhoneNumber", "Country")] User user)
         {
-            if(userPassword.Equals(repeatedUserPassword))
+            if(ModelState.IsValid)
             {
-                User user = new User() { UserName = userName, UserPassword = userPassword, FirstName = firstName, LastName = lastName, Email = email, PhoneNumber = phoneNumber, Country = country, IsAdmin = isAdmin };
                 userClient.Register(user);
                 return RedirectToAction("Index", "Home");
             }
-            else
-            {
-                return RedirectToAction("RegistrationForm", "User");
-            }
-
-
+            return View(user);
         }
 
         public IActionResult Login()

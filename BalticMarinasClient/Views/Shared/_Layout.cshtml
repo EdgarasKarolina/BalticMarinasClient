@@ -76,7 +76,7 @@
 
                     @if (!User.Identity.IsAuthenticated)
                     {
-                        <li><a asp-area="" asp-controller="User" asp-action="RegistrationForm" class="navbar-brand">Register</a></li>
+                        <li><a asp-area="" asp-controller="User" asp-action="Register" class="navbar-brand">Register</a></li>
                         <li><a asp-area="" asp-controller="User" asp-action="Login" class="navbar-brand">Login</a></li>
                     }
                     @if (User.Identity.IsAuthenticated)
