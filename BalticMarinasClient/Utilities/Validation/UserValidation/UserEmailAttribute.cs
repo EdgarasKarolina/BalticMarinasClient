@@ -14,7 +14,7 @@ namespace BalticMarinasClient.Utilities.Validation.UserValidation
             {
                 return new ValidationResult("Max length is 100");
             }
-            else if (UserUtilities.ContainsNumbers(value, validationContext) == false)
+            else if (UserUtilities.IsEmail(value, validationContext) == false)
             {
                 return new ValidationResult("Must be valid email");
             }
