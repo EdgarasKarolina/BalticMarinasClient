@@ -18,5 +18,8 @@ namespace BalticMarinasClient.Models
 
         [JsonProperty("Description")]
         public string Description { get; set; }
+
+        [JsonProperty("UserId")]
+        public int UserId { get; set; }
     }
 }
