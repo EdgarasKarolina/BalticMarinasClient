@@ -51,6 +51,8 @@ namespace BalticMarinasClient.Controllers
         [HttpPost]
         public IActionResult Create(string title, string location, string period, string description)
         {
+            int userId = Int32.Parse(User.FindFirst("UserId").Value);
+
             Event newEvent = new Event() { Title = title, Location = location, Period = period, Description = description, UserId = userId };
             eventClient.CreateEvent(newEvent);
             return RedirectToAction("Index", "Home");
