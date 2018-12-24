@@ -23,13 +23,15 @@ namespace BalticMarinasClient.Controllers
         }
 
         [Authorize(Roles = "User")]
-        public IActionResult Reserve(int berthId, string checkIn, string checkOut, string email)
+        public IActionResult Reserve(int berthId, string checkIn, string checkOut, string email, int reservationId)
         {
-            int customerId = Int32.Parse(User.FindFirst("UserId").Value);
+            //int customerId = Int32.Parse(User.FindFirst("UserId").Value);
 
-            Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
-            bookmarinaClient.CreateReservation(reservation);
-            emailClient.SendConfirmationEmail(Constants.ConfirmedEmailBody, email);
+            //Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
+            //bookmarinaClient.CreateReservation(reservation);
+            //emailClient.SendConfirmationEmail(Constants.ConfirmedEmailBody, email);
+            bookmarinaClient.UpdateReservation(reservationId);
+
             return RedirectToAction("Confirmation", "Reservation");
         }
 
@@ -39,11 +41,17 @@ namespace BalticMarinasClient.Controllers
 
             if(HttpContext.User.Identity.IsAuthenticated == true)
             {
+                int customerId = Int32.Parse(User.FindFirst("UserId").Value);
                 string email = User.FindFirst("Email").Value;
+
+                Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
+                bookmarinaClient.CreateReservation(reservation);
+
                 ViewBag.BerthId = berthId;
                 ViewBag.CheckIn = checkIn;
                 ViewBag.CheckOut = checkOut;
                 ViewBag.Email = email;
+
                 return View();
             }
             else
@@ -55,10 +63,16 @@ namespace BalticMarinasClient.Controllers
         [Authorize(Roles = "User")]
         public IActionResult Payment(int berthId, string checkIn, string checkOut, string email)
         {
+            int customerId = Int32.Parse(User.FindFirst("UserId").Value);
+            var reservationId = bookmarinaClient.GetReservationId(berthId, customerId, checkIn, checkOut).Result;
+            bookmarinaClient.DeleteNotPaidReservation(reservationId);
+
+           
             ViewBag.BerthId = berthId;
             ViewBag.CheckIn = checkIn;
             ViewBag.CheckOut = checkOut;
             ViewBag.Email = email;
+            ViewBag.ReservationId = reservationId;
             return View();
         }
     }

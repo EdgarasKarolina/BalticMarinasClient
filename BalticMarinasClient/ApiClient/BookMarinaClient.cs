@@ -266,6 +266,40 @@ namespace BalticMarinasClient.ApiClient
             }
         }
 
+        public async Task<int> GetReservationId(int berthId, int customerId, string checkIn, string checkOut)
+        {
+            var result = string.Empty;
+            var reservationId = 0;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.reservationServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = reservationServiceBase + berthId + "/" + customerId + "/" + checkIn + "/" + checkOut;
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    reservationId = JsonConvert.DeserializeObject<int>(result);
+                    int res = await Task.FromResult<int>(reservationId);
+                    return res;
+
+                    //return reservationId;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+
         public async void CreateReservation(Reservation reservation)
         {
             using (var client = new HttpClient())
@@ -280,6 +314,33 @@ namespace BalticMarinasClient.ApiClient
                 response.EnsureSuccessStatusCode();
             }
         }
+
+        public async void UpdateReservation(int? reservationId)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.reservationServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.PutAsync(reservationServiceBase + "/" + reservationId, null);
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
+        public async void DeleteNotPaidReservation(int? reservationId)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.reservationServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.DeleteAsync(reservationServiceBase + reservationId);
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
         #endregion
     }
 }
