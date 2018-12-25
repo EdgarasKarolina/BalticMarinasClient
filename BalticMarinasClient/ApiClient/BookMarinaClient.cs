@@ -236,6 +236,37 @@ namespace BalticMarinasClient.ApiClient
 
         #region Reservation methods
 
+        public async Task<int> GetIfReservationExists(int reservationId)
+        {
+            var result = string.Empty;
+            var reservationExists = 0;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.reservationServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = reservationServiceBase + "reservation" + "/" + reservationId;
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    reservationExists = JsonConvert.DeserializeObject<int>(result);
+                    return reservationExists;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+
         public async Task<ObservableCollection<Reservation>> GetAllReservationsByCustomerId(int customerId)
         {
             var result = string.Empty;

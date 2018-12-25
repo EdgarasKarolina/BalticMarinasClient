@@ -22,19 +22,6 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
-        [Authorize(Roles = "User")]
-        public IActionResult Reserve(int berthId, string checkIn, string checkOut, string email, int reservationId)
-        {
-            //int customerId = Int32.Parse(User.FindFirst("UserId").Value);
-
-            //Reservation reservation = new Reservation() { BerthId = berthId, CustomerId = customerId, CheckIn = checkIn, CheckOut = checkOut };
-            //bookmarinaClient.CreateReservation(reservation);
-            //emailClient.SendConfirmationEmail(Constants.ConfirmedEmailBody, email);
-            bookmarinaClient.UpdateReservation(reservationId);
-
-            return RedirectToAction("Confirmation", "Reservation");
-        }
-
         public IActionResult PersonalInformation(int berthId, string checkIn, string checkOut)
         {
             bool isLoggedIn = HttpContext.User.Identity.IsAuthenticated;
@@ -73,6 +60,34 @@ namespace BalticMarinasClient.Controllers
             ViewBag.CheckOut = checkOut;
             ViewBag.Email = email;
             ViewBag.ReservationId = reservationId;
+            return View();
+        }
+
+        [Authorize(Roles = "User")]
+        public IActionResult Reserve(int berthId, string checkIn, string checkOut, string email, int reservationId)
+        {
+            bookmarinaClient.UpdateReservation(reservationId);
+
+            var count = bookmarinaClient.GetIfReservationExists(reservationId).Result;
+
+            if (count > 0)
+            {
+                return RedirectToAction("Confirmation", "Reservation");
+            }
+
+            else
+            {
+                return RedirectToAction("Failed", "Reservation");
+            }
+        }
+
+        public IActionResult Confirmation()
+        {
+            return View();
+        }
+
+        public IActionResult Failed()
+        {
             return View();
         }
     }
