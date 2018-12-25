@@ -11,7 +11,7 @@ namespace BalticMarinasClient.ApiClient
 {
     public class EventClient
     {
-        private string eventServiceBase = "https://localhost:44326/api/event";
+        private string eventServiceBase = "https://localhost:44326/api/events/";
 
         public async Task<ObservableCollection<Event>> GetAllEvents()
         {
@@ -54,7 +54,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = eventServiceBase + "/" + eventId;
+                var urlAddress = eventServiceBase + eventId;
 
                 HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
                 if (response.IsSuccessStatusCode)
@@ -85,7 +85,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = eventServiceBase + "/" + "user" + "/" + userId;
+                var urlAddress = eventServiceBase + "users" + "/" + userId;
 
                 try
                 {
@@ -128,7 +128,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.DeleteAsync(eventServiceBase + "/" + eventId);
+                HttpResponseMessage response = await client.DeleteAsync(eventServiceBase + eventId);
                 response.EnsureSuccessStatusCode();
             }
         }
