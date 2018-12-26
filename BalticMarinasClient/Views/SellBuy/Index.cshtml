@@ -4,36 +4,39 @@
     ViewData["Title"] = "View";
 }
 
-<h2>Sold Items</h2>
+<body>
+    <h2>Sold Items</h2>
 
-<td>@Html.ActionLink("New", "Create", "SellBuy")</td>
+    <td>@Html.ActionLink("New", "Create", "SellBuy")</td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Year</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.ItemsList)
-        {
-        <tr>
-            <td>@item.Title</td>
-            <td>@item.Category</td>
-            <td>@item.Price</td>
-            <td>@item.MadeYear</td>
-            <td>@item.Description</td>
-            <td>@Html.ActionLink("More Information", "Details", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-            @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    <table id="sold-items-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Year</th>
+                <th>Description</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.ItemsList)
             {
-                <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Category</td>
+                    <td>@item.Price</td>
+                    <td>@item.MadeYear</td>
+                    <td>@item.Description</td>
+                    <td>@Html.ActionLink("More Information", "Details", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                    }
+
+                </tr>
             }
-            
-        </tr>
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</body>

@@ -3,27 +3,28 @@
     ViewData["Title"] = "Available";
 }
 
-<h2>Available Berths</h2>
+<body>
+    <h2>Available Berths</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>BerthId</th>
-            <th>MarinaId</th>
-            <th>Price</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.BerthsList)
-        {
-        <tr>
-            <td>@item.BerthId</td>
-            <td>@item.MarinaId</td>
-            <td>@item.Price</td>
-            <td>@Html.ActionLink("More Information", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-            <td>@Html.ActionLink("Booking", "PersonalInformation", "Reservation", new { berthId = item.BerthId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-        </tr>
-        }
-    </tbody>
-</table>
-
+    <table class="berths-table">
+        <thead>
+            <tr>
+                <th>BerthId</th>
+                <th>MarinaId</th>
+                <th>Price</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.BerthsList)
+            {
+                <tr>
+                    <td>@item.BerthId</td>
+                    <td>@item.MarinaId</td>
+                    <td>@item.Price</td>
+                    <td>@Html.ActionLink("More Information", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                    <td>@Html.ActionLink("Booking", "PersonalInformation", "Reservation", new { berthId = item.BerthId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

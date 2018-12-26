@@ -3,32 +3,34 @@
     ViewData["Title"] = "IndexUser";
 }
 
-<h2>IndexUser</h2>
+<body>
+    <h2>IndexUser</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Category</th>
-            <th>Price</th>
-            <th>Year</th>
-            <th>Description</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.ItemsList)
-        {
-        <tr>
-            <td>@item.Title</td>
-            <td>@item.Category</td>
-            <td>@item.Price</td>
-            <td>@item.MadeYear</td>
-            <td>@item.Description</td>
-            <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-        </tr>
-        }
-    </tbody>
-    @Html.ActionLink("New advert", "Create", new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })
-</table>
+    <table id="sold-items-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Category</th>
+                <th>Price</th>
+                <th>Year</th>
+                <th>Description</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.ItemsList)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Category</td>
+                    <td>@item.Price</td>
+                    <td>@item.MadeYear</td>
+                    <td>@item.Description</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                </tr>
+            }
+        </tbody>
+        @Html.ActionLink("New advert", "Create", new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })
+    </table>
+</body>
 
 

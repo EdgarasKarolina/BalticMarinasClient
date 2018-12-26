@@ -39,6 +39,152 @@ input[type=submit]:hover {
     box-sizing: border-box;
 }
 
+/*#region Weather table*/
+#weather-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 50px;
+}
 
+#weather-table td, #weather-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
 
- 
+#weather-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#weather-table tr:hover {
+    background-color: #ddd;
+}
+
+#weather-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+} 
+/*#endregion*/
+
+/*#region Sold Items table*/
+#sold-items-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 50px;
+}
+
+#sold-items-table td, #sold-items-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#sold-items-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#sold-items-table tr:hover {
+    background-color: #ddd;
+}
+
+#sold-items-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+}
+/*#endregion*/
+
+/*#region Events table*/
+#events-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 50px;
+}
+
+#events-table td, #events-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#events-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#events-table tr:hover {
+    background-color: #ddd;
+}
+
+#events-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+}
+/*#endregion*/
+
+/*#region Marinas table*/
+.marinas-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.marinas-table td, .marinas-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.marinas-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.marinas-table tr:hover {
+    background-color: #ddd;
+}
+
+.marinas-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+}
+/*#endregion*/
+
+/*#region Berths table*/
+.berths-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+    margin-top: 50px;
+}
+
+.berths-table td, .berths-table th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+.berths-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+.berths-table tr:hover {
+    background-color: #ddd;
+}
+
+.berths-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+}
+/*#endregion*/

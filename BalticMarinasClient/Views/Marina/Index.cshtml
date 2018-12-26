@@ -3,60 +3,62 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Total list of marinas</h2>
+<body>
+    <h2>Total list of marinas</h2>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Phone</th>
-            <th>Depth</th>
-            <th>City</th>
-            <th>Country</th>
-            <th>Berths</th>
-            <th>Toilet</th>
-            <th>Shower</th>
-            <th>Internet</th>
-            <th>More</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.MarinasList)
-        {
-        <tr>
-            <td>@item.MarinaName</td>
-            <td>@item.Phone</td>
-            <td>@item.Depth</td>
-            <td>@item.CityName</td>
-            <td>@item.Country</td>
-            <td>@item.TotalBerths</td>
-            @if (item.IsToilet == 1)
+    <table class="marinas-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Phone</th>
+                <th>Depth</th>
+                <th>City</th>
+                <th>Country</th>
+                <th>Berths</th>
+                <th>Toilet</th>
+                <th>Shower</th>
+                <th>Internet</th>
+                <th>More</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.MarinasList)
             {
-                <td>Yes</td>
+                <tr>
+                    <td>@item.MarinaName</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Depth</td>
+                    <td>@item.CityName</td>
+                    <td>@item.Country</td>
+                    <td>@item.TotalBerths</td>
+                    @if (item.IsToilet == 1)
+                    {
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                    }
+                    @if (item.IsShower == 1)
+                    {
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                    }
+                    @if (item.IsInternet == 1)
+                    {
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                    }
+                    <td>@Html.ActionLink("More Information", "Details", new { id = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                </tr>
             }
-            else
-            {
-                <td>No</td>
-            }
-            @if (item.IsShower == 1)
-            {
-                <td>Yes</td>
-            }
-            else
-            {
-                <td>No</td>
-            }
-            @if (item.IsInternet == 1)
-            {
-                <td>Yes</td>
-            }
-            else
-            {
-                <td>No</td>
-            }
-            <td>@Html.ActionLink("More Information", "Details", new { id = item.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-        </tr>
-        }
-    </tbody>
-</table>
+        </tbody>
+    </table>
+</body>
 

@@ -4,32 +4,34 @@
     ViewData["Title"] = "Index";
 }
 
-<h2>Events</h2>
+<body>
+    <h2>Events</h2>
 
-<td>@Html.ActionLink("New", "Create", "Event" )</td>
+    <td>@Html.ActionLink("New", "Create", "Event")</td>
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Title</th>
-            <th>Location</th>
-            <th>Period</th>
-            <th>Description</th>
-            <th>More</th>
-            <th>Delete</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.EventsList)
-        {
-        <tr>
-            <td>@item.Title</td>
-            <td>@item.Location</td>
-            <td>@item.Period</td>
-            <td>@item.Description</td>
-            <td>@Html.ActionLink("More Information", "Details", new { id = item.EventId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-            <td>@Html.ActionLink("Deleting", "Delete", new { id = item.EventId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
-        </tr>
-        }
-    </tbody>
-</table>
+    <table id="events-table">
+        <thead>
+            <tr>
+                <th>Title</th>
+                <th>Location</th>
+                <th>Period</th>
+                <th>Description</th>
+                <th>More</th>
+                <th>Delete</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.EventsList)
+            {
+                <tr>
+                    <td>@item.Title</td>
+                    <td>@item.Location</td>
+                    <td>@item.Period</td>
+                    <td>@item.Description</td>
+                    <td>@Html.ActionLink("More Information", "Details", new { id = item.EventId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                    <td>@Html.ActionLink("Deleting", "Delete", new { id = item.EventId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

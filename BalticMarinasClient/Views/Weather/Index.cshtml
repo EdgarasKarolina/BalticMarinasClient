@@ -3,23 +3,25 @@
     ViewData["Title"] = "Index";
 }
 
-<table class="table">
-    <thead>
-        <tr>
-            <th>Name</th>
-            <th>Temperature</th>
-            <th>Wind Speed m/s</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.WeatherList)
-        {
-        <tr>
-            <td>@item.Name</td>
-            <td>@item.Main.Temp</td>
-            <td>@item.Wind.Speed</td>
-        </tr>
-        }
-    </tbody>
-</table>
+<body>
+    <table id="weather-table">
+        <thead>
+            <tr>
+                <th>Name</th>
+                <th>Temperature</th>
+                <th>Wind Speed m/s</th>
+            </tr>
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.WeatherList)
+            {
+                <tr>
+                    <td>@item.Name</td>
+                    <td>@item.Main.Temp</td>
+                    <td>@item.Wind.Speed</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>
 
