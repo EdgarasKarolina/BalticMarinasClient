@@ -11,7 +11,7 @@ namespace BalticMarinasClient.ApiClient
 {
     public class UserClient
     {
-        private string userServiceBase = "https://localhost:44315/api/user/";
+        private string userServiceBase = "https://localhost:44315/api/users/";
 
         public async Task<int> AuthenticateUser(string userName, string password)
         {
@@ -24,7 +24,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = userServiceBase + "/" + userName + "/" + password;
+                var urlAddress = userServiceBase + userName + "/" + "password" + "/" + password;
 
                 try
                 {
@@ -55,7 +55,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = userServiceBase + "/" + "userId" + "/" + userName + "/" + password;
+                var urlAddress = userServiceBase + userName + "/" + "password" + "/" + password + "/" + "email";
 
                 try
                 {
