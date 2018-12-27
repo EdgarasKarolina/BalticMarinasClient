@@ -11,9 +11,9 @@ namespace BalticMarinasClient.ApiClient
 {
     public class BookMarinaClient
     {
-        private string marinaServiceBase = "https://localhost:44300/api/marina";
-        private string berthServiceBase = "https://localhost:44300/api/berth";
-        private string reservationServiceBase = "https://localhost:44300/api/reservation/";
+        private string marinaServiceBase = "https://localhost:44300/api/marinas/";
+        private string berthServiceBase = "https://localhost:44300/api/berths/";
+        private string reservationServiceBase = "https://localhost:44300/api/reservations/";
 
         #region Marinas methods
         public async Task<ObservableCollection<Marina>> GetAllMarinas()
@@ -57,7 +57,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = marinaServiceBase + "/" + marinaId;
+                var urlAddress = marinaServiceBase + marinaId;
 
                 HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
                 if (response.IsSuccessStatusCode)
@@ -88,7 +88,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = marinaServiceBase + "/" + "country" + "/" + country;
+                var urlAddress = marinaServiceBase + "countries" + "/" + country + "/" + "marinas";
 
                 try
                 {
@@ -150,7 +150,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = berthServiceBase + "/" + marinaId;
+                var urlAddress = berthServiceBase + "marinas" + "/" + marinaId + "/" + "berths";
 
                 try
                 {
@@ -181,7 +181,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = berthServiceBase + "/" + marinaId + "/" + berthId;
+                var urlAddress = berthServiceBase + "marinas" + "/" + marinaId + "/" + "berths" + "/" + berthId;
 
                 HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
                 if (response.IsSuccessStatusCode)
@@ -201,7 +201,7 @@ namespace BalticMarinasClient.ApiClient
 
             return berthResult;
         }
-
+        
         public async Task<ObservableCollection<Berth>> GetAvailableBerthsByMarina(int? marinaId, string checkIn, string checkOut)
         {
             var result = string.Empty;
@@ -212,7 +212,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = berthServiceBase + "/" + marinaId + "/" + checkIn + "/" + checkOut;
+                var urlAddress = berthServiceBase + "marinas" + "/" + marinaId + "/" + "berths" + "/" + "checkin" + "/" + checkIn + "/" + "checkout" + "/" + checkOut;
 
                 try
                 {
@@ -235,7 +235,7 @@ namespace BalticMarinasClient.ApiClient
         #endregion
 
         #region Reservation methods
-
+        
         public async Task<int> GetIfReservationExists(int reservationId)
         {
             var result = string.Empty;
@@ -247,7 +247,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = reservationServiceBase + "reservation" + "/" + reservationId;
+                var urlAddress = reservationServiceBase + "reservations" + "/" + reservationId;
 
                 try
                 {
@@ -266,7 +266,7 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
-
+       
         public async Task<ObservableCollection<Reservation>> GetAllReservationsByCustomerId(int customerId)
         {
             var result = string.Empty;
@@ -277,7 +277,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = reservationServiceBase + customerId;
+                var urlAddress = reservationServiceBase + "customers" + "/" + customerId + "/" + "reservations";
 
                 try
                 {
@@ -296,7 +296,7 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
-
+ 
         public async Task<int> GetReservationId(int berthId, int customerId, string checkIn, string checkOut)
         {
             var result = string.Empty;
@@ -308,7 +308,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                var urlAddress = reservationServiceBase + berthId + "/" + customerId + "/" + checkIn + "/" + checkOut;
+                var urlAddress = reservationServiceBase + "berths" + "/" + berthId + "/" + "customers" + "/" + customerId + "/" + "checkin" + "/" + checkIn + "/" + "checkout" + "/" + checkOut;
 
                 try
                 {
@@ -354,7 +354,7 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Clear();
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
-                HttpResponseMessage response = await client.PutAsync(reservationServiceBase + "/" + reservationId, null);
+                HttpResponseMessage response = await client.PutAsync(reservationServiceBase + reservationId, null);
                 response.EnsureSuccessStatusCode();
             }
         }
