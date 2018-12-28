@@ -43,7 +43,39 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
-        
+
+        public async Task<string> GetUserName(int userId)
+        {
+            var result = string.Empty;
+            string userName = "";
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.userServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = userServiceBase + userId + "/" + "username";
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    userName = JsonConvert.DeserializeObject<string>(result);
+                    string res = await Task.FromResult<string>(userName);
+                    return res;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+
         public async Task<List<object>> GetUserIdEmailIsAdmin(string userName, string password)
         {
             var result = string.Empty;

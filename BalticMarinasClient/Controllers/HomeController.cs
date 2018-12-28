@@ -9,8 +9,6 @@ namespace BalticMarinasClient.Controllers
 {
     public class HomeController : Controller
     {
-        //private readonly IOptions<ApplicationSettings> appSettings;
-
         EventClient eventClient = new EventClient();
 
         public IActionResult Index()

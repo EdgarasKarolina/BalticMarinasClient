@@ -1,6 +1,5 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
-using BalticMarinasClient.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;

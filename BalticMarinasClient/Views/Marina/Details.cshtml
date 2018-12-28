@@ -3,13 +3,28 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>@ViewBag.MarinasList.MarinaName</h1>
+<body>
+    <ul>
+        <li>@ViewBag.MarinasList.MarinaName</li>
 
-<div>@ViewBag.MarinasList.Phone</div>
-<div>@ViewBag.MarinasList.Depth</div>
-<div>@ViewBag.MarinasList.CityName</div>
-<div>@ViewBag.MarinasList.Country</div>
-<div>@ViewBag.MarinasList.TotalBerths</div>
-<div>@ViewBag.MarinasList.IsInternet</div>
-<div>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</div>
+        <li>@ViewBag.MarinasList.Phone</li>
+        <li>@ViewBag.MarinasList.Depth</li>
+        <li>@ViewBag.MarinasList.CityName</li>
+        <li>@ViewBag.MarinasList.Country</li>
+        <li>@ViewBag.MarinasList.TotalBerths</li>
+        <li>@ViewBag.MarinasList.IsInternet</li>
+    </ul>
 
+    <div>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</div>
+    <div>@Html.ActionLink("Add Comment", "Create", "Comment", new { MarinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</div>
+
+
+    @foreach (var item in ViewBag.ItemsList)
+    {
+        <ul class="comment-list">
+            <li>@item.UserName</li>
+            <li>@item.TimePlaced</li>
+            <li>@item.Body</li>
+        </ul>
+    }
+</body>

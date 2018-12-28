@@ -14,6 +14,7 @@ namespace BalticMarinasClient.ApiClient
         private string marinaServiceBase = "https://localhost:44300/api/marinas/";
         private string berthServiceBase = "https://localhost:44300/api/berths/";
         private string reservationServiceBase = "https://localhost:44300/api/reservations/";
+        private string commentServiceBase = "https://localhost:44300/api/comments/";
 
         #region Marinas methods
         public async Task<ObservableCollection<Marina>> GetAllMarinas()
@@ -368,6 +369,55 @@ namespace BalticMarinasClient.ApiClient
                 client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
 
                 HttpResponseMessage response = await client.DeleteAsync(reservationServiceBase + reservationId);
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
+        #endregion
+
+        #region Comment methods
+
+        public async Task<ObservableCollection<Comment>> GetAllCommentsByMarinaId(int? marinaId)
+        {
+            var result = string.Empty;
+
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.commentServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var urlAddress = commentServiceBase + "marinas" + "/" + marinaId + "/" + "comments";
+
+                try
+                {
+                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
+                    if (response.IsSuccessStatusCode)
+                    {
+                        result = await response.Content.ReadAsStringAsync();
+                    }
+
+                    var list = JsonConvert.DeserializeObject<ObservableCollection<Comment>>(result);
+                    return list;
+                }
+                catch (Exception e)
+                {
+                    throw new Exception($"Error: {e.StackTrace}");
+                }
+            }
+        }
+
+        public async void CreateComment(Comment comment)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.commentServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var json = JsonConvert.SerializeObject(comment);
+
+                HttpResponseMessage response = await client.PostAsync(commentServiceBase, new StringContent(json, Encoding.UTF8, "application/json"));
                 response.EnsureSuccessStatusCode();
             }
         }

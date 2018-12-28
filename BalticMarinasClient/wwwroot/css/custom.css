@@ -188,3 +188,18 @@ input[type=submit]:hover {
     color: white;
 }
 /*#endregion*/
+
+/*#region Comment*/
+.comment-list ul {
+    background: #C0C0C0;
+    list-style-type: none;
+    padding: 20px;
+}
+
+.comment-list li {
+    background: #ffe5e5;
+    padding: 5px;
+    margin-left: 35px;
+}
+/*#endregion*/
+

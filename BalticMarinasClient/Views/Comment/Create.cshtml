@@ -1,0 +1,27 @@
+﻿@model BalticMarinasClient.Models.Comment
+
+<h2>Write Comment</h2>
+
+@using (Html.BeginForm("Create", "Comment", FormMethod.Post))
+{
+    <p>
+        <div class="row">
+            <div class="col-md-9" style="display:inline-block">
+                <div class="row">
+                    <div class="col-md-10">
+                        <br />
+                        @Html.EditorFor(model => model.Body, new { htmlAttributes = new { @class = "account-input", placeholder = "Text" } })
+                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                        <br />
+                        @Html.HiddenFor(model => model.MarinaId, (int)ViewBag.MarinaId);
+                        <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Register")</button>
+                    </div>
+                    <div class="col-md-2">
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </p>
+}
+
