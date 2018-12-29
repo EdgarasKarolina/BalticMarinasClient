@@ -3,9 +3,12 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>Berth Details</h2>
+<body>
+    <ul class="details">
+        <li><h2>Details</h2></li>
+        <li>Berth Number: @ViewBag.BerthsList.BerthId</li>
+        <li>Price per one day: @ViewBag.BerthsList.Price  €</li>
+    </ul>
+</body>
 
-<div>@ViewBag.BerthsList.BerthId</div>
-<div>@ViewBag.BerthsList.MarinaId</div>
-<div>@ViewBag.BerthsList.Price</div>
 

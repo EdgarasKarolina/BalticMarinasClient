@@ -202,12 +202,12 @@ input[type=submit]:hover {
 }
 /*#endregion*/
 
-/*#region Marina Details*/
-#marinas-details ul {
+/*#region Details*/
+.details ul {
     padding: 20px;
 }
 
-#marinas-details li {
+.details li {
     list-style-type: none;
     padding: 5px;
     margin-left: 35px;
