@@ -23,10 +23,8 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
-        public IActionResult About()
+        public IActionResult Contacts()
         {
-            ViewData["Message"] = "Your application description page.";
-
             return View();
         }
 
