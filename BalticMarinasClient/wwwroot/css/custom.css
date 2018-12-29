@@ -191,13 +191,24 @@ input[type=submit]:hover {
 
 /*#region Comment*/
 .comment-list ul {
-    background: #C0C0C0;
-    list-style-type: none;
     padding: 20px;
 }
 
 .comment-list li {
-    background: #ffe5e5;
+    list-style-type: none;
+    background: #DCDCDC;
+    padding: 5px;
+    margin-left: 35px;
+}
+/*#endregion*/
+
+/*#region Marina Details*/
+#marinas-details ul {
+    padding: 20px;
+}
+
+#marinas-details li {
+    list-style-type: none;
     padding: 5px;
     margin-left: 35px;
 }
