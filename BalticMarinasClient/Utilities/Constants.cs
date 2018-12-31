@@ -2,6 +2,7 @@
 {
     public static class Constants
     {
-        public const string ConfirmedEmailBody = "Your reservation at MARINA (BERTH) from CHECKIN to CHECKOUT is now confirmed";
+        public const string ConfirmedEmailBody = "Congratulations your reservation was successful.";
+        public const string FailedEmailBody = "Unfortunately your reservation was not successful. Please try again.";
     }
 }

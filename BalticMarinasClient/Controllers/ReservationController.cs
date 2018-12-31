@@ -1,5 +1,6 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
+using BalticMarinasClient.Utilities;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
@@ -71,11 +72,13 @@ namespace BalticMarinasClient.Controllers
 
             if (count > 0)
             {
+                emailClient.SendConfirmationEmail(Constants.ConfirmedEmailBody, email);
                 return RedirectToAction("Confirmation", "Reservation");
             }
 
             else
             {
+                emailClient.SendConfirmationEmail(Constants.FailedEmailBody, email);
                 return RedirectToAction("Failed", "Reservation");
             }
         }
