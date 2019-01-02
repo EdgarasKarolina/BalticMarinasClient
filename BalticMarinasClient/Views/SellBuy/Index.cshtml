@@ -6,8 +6,7 @@
 
 <body>
     <h2>Sold Items</h2>
-
-    <td>@Html.ActionLink("New", "Create", "SellBuy")</td>
+    @Html.ActionLink("New", "Create", "SellBuy",  new { @class = "btn blue-button btn-large buttons-with-70proc-width" })
 
     <table id="sold-items-table">
         <thead>
@@ -32,7 +31,7 @@
                     <td>@Html.ActionLink("More Information", "Details", new { id = item.SoldItemId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-danger btn-large buttons-with-70proc-width" })</td>
                     }
 
                 </tr>

@@ -15,6 +15,8 @@
                 <th>City</th>
                 <th>Country</th>
                 <th>Berths</th>
+                <th>Toilet</th>
+                <th>Shower</th>
                 <th>Internet</th>
                 <th>Details</th>
                 <th>Availability</th>
@@ -23,17 +25,40 @@
         <tbody>
             @foreach (var item in ViewBag.MarinasList)
             {
-                <tr>
-                    <td>@item.MarinaName</td>
-                    <td>@item.Phone</td>
-                    <td>@item.Depth</td>
-                    <td>@item.CityName</td>
-                    <td>@item.Country</td>
-                    <td>@item.TotalBerths</td>
-                    <td>@item.IsInternet</td>
-                    <td>@Html.ActionLink("Marinas Details", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-                    <td>@Html.ActionLink("Available Berths", "Available", "Berth", new { marinaId = item.MarinaId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-                </tr>
+            <tr>
+                <td>@item.MarinaName</td>
+                <td>@item.Phone</td>
+                <td>@item.Depth</td>
+                <td>@item.CityName</td>
+                <td>@item.Country</td>
+                <td>@item.TotalBerths</td>
+                @if (item.IsToilet == 1)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                @if (item.IsShower == 1)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                @if (item.IsInternet == 1)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                <td>@Html.ActionLink("Details", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+                <td>@Html.ActionLink("Available Berths", "Available", "Berth", new { marinaId = item.MarinaId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+            </tr>
             }
         </tbody>
     </table>
