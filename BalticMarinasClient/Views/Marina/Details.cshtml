@@ -36,8 +36,8 @@
         {
             <li><h4>Internet: No</h4></li>
         }
-        <li>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</li>
-        <li>@Html.ActionLink("Add Comment", "Create", "Comment", new { MarinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</li>
+        <li>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</li>
+        <li>@Html.ActionLink("Add Comment", "Create", "Comment", new { MarinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</li>
     </ul>
 
     @foreach (var item in ViewBag.ItemsList)

@@ -4,7 +4,7 @@
     ViewData["Title"] = "Account Registration";
 }
 
-<h2>RegistrationForm</h2>
+<h2>Account Registration</h2>
 
 @using (Html.BeginForm("Register", "User", FormMethod.Post))
 {
@@ -35,7 +35,7 @@
                         @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "account-input", placeholder = "Country" } })
                         @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
                         <br />
-                        <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn btn-primary btn-small btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Register")</button>
+                        <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Register")</button>
                     </div>
                     <div class="col-md-2">
                     </div>
