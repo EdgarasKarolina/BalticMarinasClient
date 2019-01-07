@@ -6,7 +6,7 @@
 
 <body>
     <h2>Sold Items</h2>
-    @Html.ActionLink("New", "Create", "SellBuy",  new { @class = "btn blue-button btn-large buttons-with-70proc-width" })
+    @Html.ActionLink("New", "Create", "SellBuy", new { @class = "btn blue-button btn-large buttons-with-70proc-width" })
 
     <table id="sold-items-table">
         <thead>
@@ -38,4 +38,5 @@
             }
         </tbody>
     </table>
+    @Html.ActionLink("More Information", "Details", new { @class = "btn blue-button btn-large buttons-with-70proc-width" })
 </body>

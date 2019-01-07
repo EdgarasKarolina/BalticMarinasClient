@@ -3,10 +3,27 @@
     ViewData["Title"] = "Details";
 }
 
-<h2>@ViewBag.Item.Title</h2>
 
-<div>@ViewBag.Item.Category</div>
-<div>@ViewBag.Item.Price</div>
-<div>@ViewBag.Item.MadeYear</div>
-<div>@ViewBag.Item.Description</div>
+<table id="sold-item-details">
+    <tr>
+        <th>Title:</th>
+        <td>@ViewBag.Item.Title</td>
+    </tr>
+    <tr>
+        <th>Category:</th>
+        <td>@ViewBag.Item.Category</td>
+    </tr>
+    <tr>
+        <th>Price:</th>
+        <td>@ViewBag.Item.Price</td>
+    </tr>
+    <tr>
+        <th>Year:</th>
+        <td>@ViewBag.Item.MadeYear</td>
+    </tr>
+    <tr>
+        <th>Description:</th>
+        <td>@ViewBag.Item.Description</td>
+    </tr>
+</table>
 

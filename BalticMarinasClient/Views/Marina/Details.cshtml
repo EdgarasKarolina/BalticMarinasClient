@@ -1,44 +1,63 @@
 ﻿
-@{
-    ViewData["Title"] = "Details";
-}
-
 <body>
-    <ul class="details">
-        <li><h1>@ViewBag.MarinasList.MarinaName</h1></li>
-        <li><h4>Phone number: @ViewBag.MarinasList.Phone</h4></li>
-        <li><h4>Average Depth: @ViewBag.MarinasList.Depth</h4></li>
-        <li><h4>Location: @ViewBag.MarinasList.CityName ,@ViewBag.MarinasList.Country</h4></li>
-        <li><h4>Amount of berths: @ViewBag.MarinasList.TotalBerths</h4></li>
-        @if (@ViewBag.MarinasList.IsShower == 1)
-        {
-            <li><h4>Shower: Yes</h4></li>
-        }
-        else
-        {
-            <li><h4>Shower: No</h4></li>
-        }
+    <table id="marina-details">
+        <tr>
+            <th>Marina:</th>
+            <td>@ViewBag.MarinasList.MarinaName</td>
+        </tr>
+        <tr>
+            <th>Phone Number:</th>
+            <td>@ViewBag.MarinasList.Phone</td>
+        </tr>
+        <tr>
+            <th>Max. Depth:</th>
+            <td>@ViewBag.MarinasList.Depth</td>
+        </tr>
+        <tr>
+            <th>Location:</th>
+            <td>@ViewBag.MarinasList.CityName ,@ViewBag.MarinasList.Country</td>
+        </tr>
+        <tr>
+            <th>Amount of places:</th>
+            <td>@ViewBag.MarinasList.TotalBerths</td>
+        </tr>
+        <tr>
+            <th>Shower:</th>
+            @if (@ViewBag.MarinasList.IsShower == 1)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
+        </tr>
+        <tr>
+            <th>Toilet:</th>
+            @if (@ViewBag.MarinasList.IsToilet == 1)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
+        </tr>
+        <tr>
+            <th>Internet:</th>
+            @if (@ViewBag.MarinasList.IsInternet == 1)
+            {
+                <td>Yes</td>
+            }
+            else
+            {
+                <td>No</td>
+            }
+        </tr>
+    </table>
+    <div>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+    <div>@Html.ActionLink("Add Comment", "Create", "Comment", new { MarinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
 
-        @if (@ViewBag.MarinasList.IsToilet == 1)
-        {
-            <li><h4>Toilet: Yes</h4></li>
-        }
-        else
-        {
-            <li><h4>Toilet: No</h4></li>
-        }
-
-        @if (@ViewBag.MarinasList.IsInternet == 1)
-        {
-            <li><h4>Internet: Yes</h4></li>
-        }
-        else
-        {
-            <li><h4>Internet: No</h4></li>
-        }
-        <li>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</li>
-        <li>@Html.ActionLink("Add Comment", "Create", "Comment", new { MarinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</li>
-    </ul>
 
     @foreach (var item in ViewBag.ItemsList)
     {

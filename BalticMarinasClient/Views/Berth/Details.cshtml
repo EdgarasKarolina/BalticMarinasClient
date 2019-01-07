@@ -1,14 +1,15 @@
 ﻿
-@{
-    ViewData["Title"] = "Details";
-}
-
 <body>
-    <ul class="details">
-        <li><h2>Details</h2></li>
-        <li>Berth Number: @ViewBag.BerthsList.BerthId</li>
-        <li>Price per one day: @ViewBag.BerthsList.Price  €</li>
-    </ul>
+    <table id="berth-details">
+        <tr>
+            <th>Berth Number:</th>
+            <td>@ViewBag.BerthsList.BerthId</td>
+        </tr>
+        <tr>
+            <th>Price per Day:</th>
+            <td>@ViewBag.BerthsList.Price €</td>
+        </tr>
+    </table>
 </body>
 
 

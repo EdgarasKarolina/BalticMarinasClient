@@ -118,6 +118,39 @@ input[type=submit]:hover {
 }
 /*#endregion*/
 
+/*#region Sold Item Details table*/
+
+#sold-item-details {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 50px;
+}
+
+#sold-item-details td, #sold-item-details th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#sold-item-details tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#sold-item-details tr:hover {
+    background-color: #ddd;
+}
+
+#sold-item-details th {
+    width: 20%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+}
+
+/*#endregion*/
+
 /*#region Events table*/
 #events-table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -178,6 +211,39 @@ input[type=submit]:hover {
 }
 /*#endregion*/
 
+/*#region Marina Details table*/
+
+#marina-details {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 50px;
+}
+
+#marina-details td, #marina-details th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#marina-details tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#marina-details tr:hover {
+    background-color: #ddd;
+}
+
+#marina-details th {
+    width: 20%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+}
+
+/*#endregion*/
+
 /*#region Berths table*/
 .berths-table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
@@ -208,6 +274,39 @@ input[type=submit]:hover {
 }
 /*#endregion*/
 
+/*#region Berth Details table*/
+
+#berth-details {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 50%;
+    margin-top: 50px;
+}
+
+#berth-details td, #berth-details th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#berth-details tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#berth-details tr:hover {
+    background-color: #ddd;
+}
+
+#berth-details th {
+    width: 20%;
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #4056A1;
+    color: white;
+}
+
+/*#endregion*/
+
 /*#region Comment*/
 .comment-list ul {
     padding: 20px;
@@ -221,16 +320,4 @@ input[type=submit]:hover {
 }
 /*#endregion*/
 
-/*#region Details*/
-.details ul {
-    padding: 20px;
-}
-
-.details li {
-    list-style-type: none;
-    padding: 5px;
-    margin-left: 35px;
-}
-
-/*#endregion*/
 
