@@ -1,10 +1,10 @@
 ﻿
-@{
-    ViewData["Title"] = "Details";
-}
 
-<h1>@ViewBag.EventsList.Title</h1>
-<h3>@ViewBag.EventsList.Location</h3>
-<h3>@ViewBag.EventsList.Period</h3>
-<div>@ViewBag.EventsList.Description</div>
+<article id="event-details">
+    <h2>@ViewBag.EventsList.Title</h2>
+    <div>@ViewBag.EventsList.Location</div>
+    <div>@ViewBag.EventsList.Period</div>
+    <p>@ViewBag.EventsList.Description</p>
+</article>
+
 

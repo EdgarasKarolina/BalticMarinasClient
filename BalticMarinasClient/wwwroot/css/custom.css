@@ -1,9 +1,9 @@
 ﻿#search-block {
-    margin-top: 50px;
 }
 
 body {
     background-color: #F1F0EB;
+    margin-top: 140px;
 }
 
 .navbar-custom {
@@ -58,12 +58,16 @@ input[type=submit]:hover {
     border-color: #204d74;
 }
 
+#footer-image {
+    width: 100%;
+    height: 100px;
+}
+
 /*#region Weather table*/
 #weather-table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 50px;
 }
 
 #weather-table td, #weather-table th {
@@ -93,7 +97,6 @@ input[type=submit]:hover {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 50px;
 }
 
 #sold-items-table td, #sold-items-table th {
@@ -124,7 +127,6 @@ input[type=submit]:hover {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 50%;
-    margin-top: 50px;
 }
 
 #sold-item-details td, #sold-item-details th {
@@ -156,7 +158,6 @@ input[type=submit]:hover {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 50px;
 }
 
 #events-table td, #events-table th {
@@ -181,12 +182,20 @@ input[type=submit]:hover {
 }
 /*#endregion*/
 
+/*#region Event Details table*/
+
+#event-details {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    width: 50%;
+}
+
+/*#endregion*/
+
 /*#region Marinas table*/
 .marinas-table {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 50px;
 }
 
 .marinas-table td, .marinas-table th {
@@ -217,7 +226,6 @@ input[type=submit]:hover {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 50%;
-    margin-top: 50px;
 }
 
 #marina-details td, #marina-details th {
@@ -249,7 +257,6 @@ input[type=submit]:hover {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 100%;
-    margin-top: 50px;
 }
 
 .berths-table td, .berths-table th {
@@ -280,7 +287,6 @@ input[type=submit]:hover {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;
     width: 50%;
-    margin-top: 50px;
 }
 
 #berth-details td, #berth-details th {
