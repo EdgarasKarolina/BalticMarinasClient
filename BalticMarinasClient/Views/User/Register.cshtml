@@ -1,49 +1,47 @@
 ﻿@model BalticMarinasClient.Models.User
 
-@{
-    ViewData["Title"] = "Account Registration";
-}
+<body>
+    <h2>Account Registration</h2>
 
-<h2>Account Registration</h2>
-
-@using (Html.BeginForm("Register", "User", FormMethod.Post))
-{
-    <p>
-        <div class="row">
-            <div class="col-md-9" style="display:inline-block">
-                <div class="row">
-                    <div class="col-md-10">
-                        <br />
-                        @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "account-input", placeholder = "User Name" } })
-                        @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
-                        <br />
-                        @Html.EditorFor(model => model.UserPassword, new { htmlAttributes = new { @class = "account-input", placeholder = "Password" } })
-                        @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
-                        <br />
-                        @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "account-input", placeholder = "First Name" } })
-                        @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
-                        <br />
-                        @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "account-input", placeholder = "Last Name" } })
-                        @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
-                        <br />
-                        @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "account-input", placeholder = "Email" } })
-                        @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
-                        <br />
-                        @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "account-input", placeholder = "Phone Number" } })
-                        @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
-                        <br />
-                        @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "account-input", placeholder = "Country" } })
-                        @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
-                        <br />
-                        <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Register")</button>
-                    </div>
-                    <div class="col-md-2">
+    @using (Html.BeginForm("Register", "User", FormMethod.Post))
+    {
+        <p>
+            <div class="row">
+                <div class="col-md-9" style="display:inline-block">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <br />
+                            @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "account-input", placeholder = "User Name" } })
+                            @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.UserPassword, new { htmlAttributes = new { @class = "account-input", placeholder = "Password" } })
+                            @Html.ValidationMessageFor(model => model.UserPassword, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.FirstName, new { htmlAttributes = new { @class = "account-input", placeholder = "First Name" } })
+                            @Html.ValidationMessageFor(model => model.FirstName, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.LastName, new { htmlAttributes = new { @class = "account-input", placeholder = "Last Name" } })
+                            @Html.ValidationMessageFor(model => model.LastName, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "account-input", placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.PhoneNumber, new { htmlAttributes = new { @class = "account-input", placeholder = "Phone Number" } })
+                            @Html.ValidationMessageFor(model => model.PhoneNumber, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "account-input", placeholder = "Country" } })
+                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                            <br />
+                            <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Register")</button>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
-            <div class="col-md-3"></div>
-        </div>
-    </p>
-}
+        </p>
+    }
+ </body>
 
 

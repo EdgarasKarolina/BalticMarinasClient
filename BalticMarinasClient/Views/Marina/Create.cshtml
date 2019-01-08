@@ -1,0 +1,57 @@
+﻿@model BalticMarinasClient.Models.Marina
+
+<body>
+    <h2>Create Marina</h2>
+
+    @using (Html.BeginForm("Create", "Marina", FormMethod.Post))
+    {
+        <p>
+            <div class="row">
+                <div class="col-md-9" style="display:inline-block">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <br />
+                            @Html.EditorFor(model => model.MarinaName, new { htmlAttributes = new { @class = "account-input", placeholder = "Marina Name" } })
+                            @Html.ValidationMessageFor(model => model.MarinaName, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Phone, new { htmlAttributes = new { @class = "account-input", placeholder = "Phone Number" } })
+                            @Html.ValidationMessageFor(model => model.Phone, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Email, new { htmlAttributes = new { @class = "account-input", placeholder = "Email" } })
+                            @Html.ValidationMessageFor(model => model.Email, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Depth, new { htmlAttributes = new { @class = "account-input", placeholder = "Max. Depth" } })
+                            @Html.ValidationMessageFor(model => model.Depth, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.CityName, new { htmlAttributes = new { @class = "account-input", placeholder = "City" } })
+                            @Html.ValidationMessageFor(model => model.CityName, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Country, new { htmlAttributes = new { @class = "account-input", placeholder = "Country" } })
+                            @Html.ValidationMessageFor(model => model.Country, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.ZipCodeNumber, new { htmlAttributes = new { @class = "account-input", placeholder = "Zip Code" } })
+                            @Html.ValidationMessageFor(model => model.ZipCodeNumber, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.TotalBerths, new { htmlAttributes = new { @class = "account-input", placeholder = "Total Berths" } })
+                            @Html.ValidationMessageFor(model => model.TotalBerths, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsShower, new { htmlAttributes = new { @class = "account-input", placeholder = "Shower" } })
+                            @Html.ValidationMessageFor(model => model.IsShower, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsToilet, new { htmlAttributes = new { @class = "account-input", placeholder = "Toilet" } })
+                            @Html.ValidationMessageFor(model => model.IsToilet, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsInternet, new { htmlAttributes = new { @class = "account-input", placeholder = "Internet" } })
+                            @Html.ValidationMessageFor(model => model.IsInternet, "", new { @class = "text-danger" })
+                            <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Create")</button>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </p>
+    }
+</body>
+

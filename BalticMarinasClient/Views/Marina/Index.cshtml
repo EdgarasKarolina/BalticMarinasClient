@@ -3,6 +3,11 @@
     ViewData["Title"] = "Index";
 }
 
+@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+{
+    <td>@Html.ActionLink("New", "Create", "Marina", new { @class = "btn btn-danger btn-large buttons-with-70proc-width" })</td>
+}
+
 <body>
     <h2>Total list of marinas</h2>
 

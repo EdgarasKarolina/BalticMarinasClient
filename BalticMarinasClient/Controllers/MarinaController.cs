@@ -1,4 +1,6 @@
 ﻿using BalticMarinasClient.ApiClient;
+using BalticMarinasClient.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace BalticMarinasClient.Controllers
@@ -6,6 +8,21 @@ namespace BalticMarinasClient.Controllers
     public class MarinaController : Controller
     {
         BookMarinaClient bookMarinaClient = new BookMarinaClient();
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public IActionResult Create(string marinaName, string phone, string email, double depth, string cityName, string country, string zipCodeNumber, int totalBerths, int isShower, int isToilet, int isInternet)
+        {
+            Marina marina = new Marina() { MarinaName = marinaName, Phone = phone, Email = email, Depth = depth, CityName = cityName, Country = country, ZipCodeNumber = zipCodeNumber, TotalBerths = totalBerths, IsShower = isShower, IsToilet = isToilet, IsInternet = isInternet };
+            bookMarinaClient.CreateMarina(marina);
+            return RedirectToAction("Index", "Marina");
+        }
 
         public IActionResult Index()
         {

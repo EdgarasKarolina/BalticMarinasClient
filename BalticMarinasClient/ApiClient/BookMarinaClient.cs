@@ -17,6 +17,22 @@ namespace BalticMarinasClient.ApiClient
         private string commentServiceBase = "https://localhost:44300/api/comments/";
 
         #region Marinas methods
+
+        public async void CreateMarina(Marina marina)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.marinaServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var json = JsonConvert.SerializeObject(marina);
+
+                HttpResponseMessage response = await client.PostAsync(marinaServiceBase, new StringContent(json, Encoding.UTF8, "application/json"));
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
         public async Task<ObservableCollection<Marina>> GetAllMarinas()
         {
             var result = string.Empty;
