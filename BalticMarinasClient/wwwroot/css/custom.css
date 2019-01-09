@@ -12,11 +12,34 @@ body {
 }
 
 .navbar-brand {
+    background-color: #4056A1 !important;
     color: white;
+    border-style: none !important;
+}
+
+.navbar-brand:hover,
+.navbar-brand:focus {
+    color: #D3D3D3;
+}
+
+.dropdown {
+    color: white !important;
+    background-color: #4056A1 !important;
+}
+
+.dropdown-menu {
+    background-color: #4056A1 !important;
+    color: white !important;
+}
+
+.dropdown-menu:hover,
+.dropdown-menu:focus {
+    color: #D3D3D3 !important;
+    background-color: #4056A1 !important;
 }
 
 .account-input {
-    width: 70%; 
+    width: 70%;
     padding: 12px 20px;
     margin: 3px 0;
     display: inline-block;
