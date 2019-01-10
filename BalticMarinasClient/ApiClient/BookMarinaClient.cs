@@ -127,6 +127,22 @@ namespace BalticMarinasClient.ApiClient
         #endregion
 
         #region Berths methods
+
+        public async void CreateBerth(Berth berth)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.berthServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var json = JsonConvert.SerializeObject(berth);
+
+                HttpResponseMessage response = await client.PostAsync(berthServiceBase, new StringContent(json, Encoding.UTF8, "application/json"));
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
         public async Task<ObservableCollection<Berth>> GetAllBerths()
         {
             var result = string.Empty;

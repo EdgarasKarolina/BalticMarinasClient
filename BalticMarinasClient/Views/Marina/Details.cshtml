@@ -55,8 +55,25 @@
             }
         </tr>
     </table>
-    <div>@Html.ActionLink("Available Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
-    <div>@Html.ActionLink("Add Comment", "Create", "Comment", new { MarinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div>
+            <div style="display: inline-block; margin-right: 10px">@Html.ActionLink("Berths", "Index", "Berth", new { marinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+            <div style="display: inline-block; margin-right: 10px">@Html.ActionLink("Edit", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+            <div style="display: inline-block; margin-right: 10px">@Html.ActionLink("Delete", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+        </div>
+    }
+    else if (User.Identity.IsAuthenticated && User.IsInRole("User"))
+    {
+        <div>
+            <div style="display: inline-block; margin-right: 10px">@Html.ActionLink("Berths", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+            <div style="display: inline-block; margin-right: 10px">@Html.ActionLink("Comment", "Create", "Comment", new { marinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+        </div>
+    }
+    else
+    {
+        <div style="display: inline-block; margin-right: 10px">@Html.ActionLink("Berths", "Index", "Berth", new { marinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+    }
 
 
     @foreach (var item in ViewBag.ItemsList)

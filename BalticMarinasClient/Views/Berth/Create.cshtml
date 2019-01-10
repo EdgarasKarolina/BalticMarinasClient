@@ -1,0 +1,29 @@
+﻿@model BalticMarinasClient.Models.Berth
+
+<body>
+    <h2>Create Berth</h2>
+
+    @using (Html.BeginForm("Create", "Berth", FormMethod.Post))
+    {
+        <p>
+            <div class="row">
+                <div class="col-md-9" style="display:inline-block">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <br />
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "account-input", placeholder = "Price per Day" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.Hidden("marinaId", (int)ViewBag.MarinaId)
+                            <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Create")</button>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3"></div>
+            </div>
+        </p>
+    }
+</body>
+

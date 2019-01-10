@@ -25,4 +25,10 @@
             }
         </tbody>
     </table>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div>
+            <div style="display: inline-block; margin-right: 10px">@Html.ActionLink("Add Berth", "Create", "Berth", new { marinaId = ViewBag.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</div>
+        </div>
+    }
 </body>
