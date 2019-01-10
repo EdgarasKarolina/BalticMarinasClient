@@ -124,6 +124,19 @@ namespace BalticMarinasClient.ApiClient
                 }
             }
         }
+
+        public async void DeleteMarinaById(int? marinaId)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.marinaServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.DeleteAsync(marinaServiceBase + marinaId);
+                response.EnsureSuccessStatusCode();
+            }
+        }
         #endregion
 
         #region Berths methods

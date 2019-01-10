@@ -16,7 +16,7 @@
                 <th>Location</th>
                 <th>Period</th>
                 <th>Description</th>
-                <th>More</th>
+                <th>Details</th>
                 <th>Delete</th>
             </tr>
         </thead>
@@ -28,8 +28,8 @@
                     <td>@item.Location</td>
                     <td>@item.Period</td>
                     <td>@item.Description</td>
-                    <td>@Html.ActionLink("More Information", "Details", new { id = item.EventId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-                    <td>@Html.ActionLink("Deleting", "Delete", new { id = item.EventId }, new { @class = "btn btn-primary btn-large buttons-with-70proc-width" })</td>
+                    <td>@Html.ActionLink("Details", "Details", new { id = item.EventId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+                    <td>@Html.ActionLink("Delete", "Delete", new { id = item.EventId }, new { @class = "btn red-button btn-large buttons-with-70proc-width" })</td>
                 </tr>
             }
         </tbody>

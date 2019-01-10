@@ -23,45 +23,55 @@
                 <th>Toilet</th>
                 <th>Shower</th>
                 <th>Internet</th>
-                <th>More</th>
+                <th>Details</th>
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                <th>Delete</th>
+                }
             </tr>
         </thead>
         <tbody>
             @foreach (var item in ViewBag.MarinasList)
             {
-                <tr>
-                    <td>@item.MarinaName</td>
-                    <td>@item.Phone</td>
-                    <td>@item.Depth</td>
-                    <td>@item.CityName</td>
-                    <td>@item.Country</td>
-                    <td>@item.TotalBerths</td>
-                    @if (item.IsToilet == 1)
-                    {
-                        <td>Yes</td>
-                    }
-                    else
-                    {
-                        <td>No</td>
-                    }
-                    @if (item.IsShower == 1)
-                    {
-                        <td>Yes</td>
-                    }
-                    else
-                    {
-                        <td>No</td>
-                    }
-                    @if (item.IsInternet == 1)
-                    {
-                        <td>Yes</td>
-                    }
-                    else
-                    {
-                        <td>No</td>
-                    }
-                    <td>@Html.ActionLink("More Information", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-                </tr>
+            <tr>
+                <td>@item.MarinaName</td>
+                <td>@item.Phone</td>
+                <td>@item.Depth</td>
+                <td>@item.CityName</td>
+                <td>@item.Country</td>
+                <td>@item.TotalBerths</td>
+
+                @if (item.IsToilet == 1)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                @if (item.IsShower == 1)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                @if (item.IsInternet == 1)
+                {
+                    <td>Yes</td>
+                }
+                else
+                {
+                    <td>No</td>
+                }
+                <td>@Html.ActionLink("Details", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+
+                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                {
+                <td>@Html.ActionLink("Delete", "Delete", new { marinaId = item.MarinaId }, new { @class = "btn red-button btn-large buttons-with-70proc-width" })</td>
+                }
+            </tr>
             }
         </tbody>
     </table>

@@ -28,10 +28,10 @@
                     <td>@item.Price</td>
                     <td>@item.MadeYear</td>
                     <td>@item.Description</td>
-                    <td>@Html.ActionLink("More Information", "Details", new { id = item.SoldItemId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+                    <td>@Html.ActionLink("Details", "Details", new { id = item.SoldItemId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn btn-danger btn-large buttons-with-70proc-width" })</td>
+                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.SoldItemId }, new { @class = "btn red-button btn-large buttons-with-70proc-width" })</td>
                     }
 
                 </tr>

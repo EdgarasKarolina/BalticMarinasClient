@@ -48,5 +48,12 @@ namespace BalticMarinasClient.Controllers
             ViewBag.CheckOut = checkOut;
             return View();
         }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Delete(int? marinaId)
+        {
+            bookMarinaClient.DeleteMarinaById(marinaId);
+            return RedirectToAction("Index", "Home");
+        }
     }
 }
