@@ -10,7 +10,7 @@
         <thead>
             <tr>
                 <th>Berth Number</th>
-                <th>Price</th>
+                <th>Price per Day</th>
                 <th>Details</th>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {
@@ -23,7 +23,7 @@
             {
             <tr>
                 <td>@item.BerthId</td>
-                <td>@item.Price</td>
+                <td>@item.Price €</td>
                 <td>@Html.ActionLink("Details", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
                 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                 {

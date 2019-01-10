@@ -1,5 +1,6 @@
 ﻿using BalticMarinasClient.ApiClient;
 using BalticMarinasClient.Models;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 
@@ -10,6 +11,7 @@ namespace BalticMarinasClient.Controllers
         BookMarinaClient bookmarinaClient = new BookMarinaClient();
         UserClient userClient = new UserClient();
 
+        [Authorize(Roles = "User")]
         public IActionResult Create(int? marinaId)
         {
             ViewBag.MarinaId = marinaId;
@@ -17,6 +19,7 @@ namespace BalticMarinasClient.Controllers
         }
 
         [HttpPost]
+        [Authorize(Roles = "User")]
         public IActionResult Create([Bind("Body", "MarinaId")] Comment comment)
         {
             DateTime today = DateTime.Today;

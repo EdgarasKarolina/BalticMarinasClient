@@ -1,9 +1,8 @@
 ﻿
-@{
-    ViewData["Title"] = "Login or Register";
-}
-
-<h2>LoginOrRegister</h2>
-
-<td>@Html.ActionLink("Login", "Login", "User", new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-<td>@Html.ActionLink("Register", "CreateUser", "User", new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+<body>
+    <div class="center-div">
+        <h4 class="title">Login or Register</h4>
+        @Html.ActionLink("Login", "Login", "User", new { @class = "btn blue-button btn-large buttons-with-70proc-width" })
+        @Html.ActionLink("Register", "CreateUser", "User", new { @class = "btn blue-button btn-large buttons-with-70proc-width" })
+    </div>
+</body>

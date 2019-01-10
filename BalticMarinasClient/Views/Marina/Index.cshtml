@@ -1,7 +1,4 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-}
 
 @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
 {
@@ -9,7 +6,7 @@
 }
 
 <body>
-    <h2>Total list of marinas</h2>
+    <h2 class="title">List of Marinas</h2>
 
     <table class="marinas-table">
         <thead>

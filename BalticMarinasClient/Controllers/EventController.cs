@@ -24,7 +24,7 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
-        [Authorize(Roles = "Admin")]
+        [Authorize(Roles = "User")]
         public IActionResult IndexUser()
         {
             int userId = Int32.Parse(User.FindFirst("UserId").Value);
@@ -32,13 +32,6 @@ namespace BalticMarinasClient.Controllers
             var items = eventClient.GetAllEventsByUserId(userId).Result;
             ViewBag.ItemsList = items;
             return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        public IActionResult Delete(int? id)
-        {
-            eventClient.DeleteEventById(id);
-            return RedirectToAction("Index");
         }
 
         [Authorize(Roles = "Admin")]
@@ -56,6 +49,13 @@ namespace BalticMarinasClient.Controllers
             Event newEvent = new Event() { Title = title, Location = location, Period = period, Description = description, UserId = userId };
             eventClient.CreateEvent(newEvent);
             return RedirectToAction("Index", "Home");
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Delete(int? id)
+        {
+            eventClient.DeleteEventById(id);
+            return RedirectToAction("Index");
         }
     }
 }

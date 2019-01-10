@@ -83,11 +83,13 @@ namespace BalticMarinasClient.Controllers
             }
         }
 
+        [Authorize(Roles = "User")]
         public IActionResult Confirmation()
         {
             return View();
         }
 
+        [Authorize(Roles = "User")]
         public IActionResult Failed()
         {
             return View();

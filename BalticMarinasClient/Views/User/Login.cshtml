@@ -1,34 +1,32 @@
 ﻿
-@{
-    ViewData["Title"] = "Login";
-}
+<body>
+    <h2 class="title">Login</h2>
 
-<h2>Login</h2>
+    @using (Html.BeginForm("Login", "User", FormMethod.Post))
 
-@using (Html.BeginForm("Login", "User", FormMethod.Post))
-
-{
-    <p>
-        <div class="row">
-            <div class="col-md-9" style="display:inline-block">
-                <div class="row">
-                    <div class="col-md-10">
-                        <br />
-                        <div>
-                            @Html.TextBox("userName", "", new { @class = "account-input", placeholder = "Username" })
-                        </div>
-                        <br />
+    {
+        <p>
+            <div class="row">
+                <div class="col-md-9" style="display:inline-block">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <br />
+                            <div>
+                                @Html.TextBox("userName", "", new { @class = "account-input", placeholder = "Username" })
+                            </div>
+                            <br />
                             @Html.TextBox("userPassword", "", new { @class = "account-input", placeholder = "Password" })
-                        <br />
-                        <button style="width:40%; margin-top:15px" type="submit" class="btn blue-button btn-small btn-block account-input"> <span class="glyphicon glyphicon-log-in"></span> @Html.DisplayName("Login")</button>
-                    </div>
-                    <div class="col-md-2">  
+                            <br />
+                            <button style="width:40%; margin-top:15px" type="submit" class="btn blue-button btn-small btn-block account-input"> <span class="glyphicon glyphicon-log-in"></span> @Html.DisplayName("Login")</button>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
-            <div class="col-md-3"></div>
-        </div>
-    </p>
-}
+        </p>
+    }
+    </body>
 
 
