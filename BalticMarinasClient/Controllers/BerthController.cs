@@ -46,7 +46,15 @@ namespace BalticMarinasClient.Controllers
         {
             var berths = bookMarinaClient.GetBerthByMarinaIdAndBerthId(marinaId, berthId).Result;
             ViewBag.BerthsList = berths;
+            ViewBag.BerthId = berthId;
             return View();
+        }
+
+        [Authorize(Roles = "Admin")]
+        public IActionResult Delete(int? berthId)
+        {
+            bookMarinaClient.DeleteBerthById(berthId);
+            return RedirectToAction("Index", "Home");
         }
     }
 }

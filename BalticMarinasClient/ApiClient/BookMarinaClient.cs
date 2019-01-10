@@ -265,10 +265,23 @@ namespace BalticMarinasClient.ApiClient
             }
         }
 
+        public async void DeleteBerthById(int? berthId)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.berthServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                HttpResponseMessage response = await client.DeleteAsync(berthServiceBase + berthId);
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
         #endregion
 
         #region Reservation methods
-        
+
         public async Task<int> GetIfReservationExists(int reservationId)
         {
             var result = string.Empty;

@@ -13,6 +13,21 @@ namespace BalticMarinasClient.ApiClient
     {
         private string eventServiceBase = "https://localhost:44326/api/events/";
 
+        public async void CreateEvent(Event newEvent)
+        {
+            using (var client = new HttpClient())
+            {
+                client.BaseAddress = new Uri(this.eventServiceBase);
+                client.DefaultRequestHeaders.Accept.Clear();
+                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+                var json = JsonConvert.SerializeObject(newEvent);
+
+                HttpResponseMessage response = await client.PostAsync(eventServiceBase, new StringContent(json, Encoding.UTF8, "application/json"));
+                response.EnsureSuccessStatusCode();
+            }
+        }
+
         public async Task<ObservableCollection<Event>> GetAllEvents()
         {
             var result = string.Empty;
@@ -102,21 +117,6 @@ namespace BalticMarinasClient.ApiClient
                 {
                     throw new Exception($"Error: {e.StackTrace}");
                 }
-            }
-        }
-
-        public async void CreateEvent(Event newEvent)
-        {
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(this.eventServiceBase);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                var json = JsonConvert.SerializeObject(newEvent);
-
-                HttpResponseMessage response = await client.PostAsync(eventServiceBase, new StringContent(json, Encoding.UTF8, "application/json"));
-                response.EnsureSuccessStatusCode();
             }
         }
 

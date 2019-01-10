@@ -10,6 +10,12 @@
             <td>@ViewBag.BerthsList.Price €</td>
         </tr>
     </table>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        <div>
+            <div>@Html.ActionLink("Delete", "Delete", new { berthId = (int)ViewBag.BerthId }, new { @class = "btn red-button btn-large buttons-with-70proc-width" })</div>
+        </div>
+    }
 </body>
 
 

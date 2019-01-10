@@ -12,16 +12,18 @@
                 <th>Berth Number</th>
                 <th>Price</th>
                 <th>More Information</th>
+                <th>Delete</th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in ViewBag.BerthsList)
             {
-                <tr>
-                    <td>@item.BerthId</td>
-                    <td>@item.Price</td>
-                    <td>@Html.ActionLink("More Information", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-                </tr>
+            <tr>
+                <td>@item.BerthId</td>
+                <td>@item.Price</td>
+                <td>@Html.ActionLink("More Information", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+                <td>@Html.ActionLink("Delete", "Delete", new { berthId = item.BerthId }, new { @class = "btn red-button btn-large buttons-with-70proc-width" })</td>
+            </tr>
             }
         </tbody>
     </table>
