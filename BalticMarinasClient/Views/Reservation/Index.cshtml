@@ -1,27 +1,24 @@
 ﻿
-@{
-    ViewData["Title"] = "Index";
-}
+<body>
+    <h2 class="title">Reservations</h2>
 
-<h2>Reservations</h2>
-
-<table class="table">
-    <thead>
-        <tr>
-            <th>Berthid</th>
-            <th>CheckIn</th>
-            <th>CheckOut</th>
-        </tr>
-    </thead>
-    <tbody>
-        @foreach (var item in ViewBag.ItemsList)
-        {
+    <table class="reservations-table">
+        <thead>
             <tr>
-                <td>@item.BerthId</td>
-                <td>@item.CheckIn</td>
-                <td>@item.CheckOut</td>
+                <th>Berth Number</th>
+                <th>CheckIn</th>
+                <th>CheckOut</th>
             </tr>
-        }
-    </tbody>
-</table>
-
+        </thead>
+        <tbody>
+            @foreach (var item in ViewBag.ItemsList)
+            {
+                <tr>
+                    <td>@item.BerthId</td>
+                    <td>@item.CheckIn.Substring(0, 10)</td>
+                    <td>@item.CheckOut.Substring(0, 10)</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+</body>

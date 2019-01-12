@@ -10,6 +10,17 @@ namespace BalticMarinasClient.Controllers
     {
         EventClient eventClient = new EventClient();
 
+        [Authorize(Roles = "Admin")]
+        [HttpPost]
+        public IActionResult Create(string title, string location, string period, string description)
+        {
+            int userId = Int32.Parse(User.FindFirst("UserId").Value);
+
+            Event newEvent = new Event() { Title = title, Location = location, Period = period, Description = description, UserId = userId };
+            eventClient.CreateEvent(newEvent);
+            return RedirectToAction("Index", "Home");
+        }
+
         public IActionResult Index()
         {
             var events = eventClient.GetAllEvents().Result;
@@ -24,31 +35,10 @@ namespace BalticMarinasClient.Controllers
             return View();
         }
 
-        [Authorize(Roles = "User")]
-        public IActionResult IndexUser()
-        {
-            int userId = Int32.Parse(User.FindFirst("UserId").Value);
-
-            var items = eventClient.GetAllEventsByUserId(userId).Result;
-            ViewBag.ItemsList = items;
-            return View();
-        }
-
         [Authorize(Roles = "Admin")]
         public IActionResult Create()
         {
             return View();
-        }
-
-        [Authorize(Roles = "Admin")]
-        [HttpPost]
-        public IActionResult Create(string title, string location, string period, string description)
-        {
-            int userId = Int32.Parse(User.FindFirst("UserId").Value);
-
-            Event newEvent = new Event() { Title = title, Location = location, Period = period, Description = description, UserId = userId };
-            eventClient.CreateEvent(newEvent);
-            return RedirectToAction("Index", "Home");
         }
 
         [Authorize(Roles = "Admin")]

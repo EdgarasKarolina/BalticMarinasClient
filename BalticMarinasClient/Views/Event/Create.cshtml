@@ -1,39 +1,38 @@
-﻿
-@{
-    ViewData["Title"] = "Create";
-}
+﻿@model BalticMarinasClient.Models.Event
 
-<h2>Create new Event</h2>
+<body>
+    <h2 class="title">Create Event</h2>
 
-@using (Html.BeginForm("Create", "Event", FormMethod.Post))
-
-{
-    <p>
-        <div class="row">
-            <div class="col-md-9" style="display:inline-block">
-                <div class="row">
-                    <div class="col-md-6" id="search-inputs-div">
-                        <br />
-                        @Html.DisplayName("Title")
-                        @Html.TextBox("title", "")
-                        <br />
-                        @Html.DisplayName("Location")
-                        @Html.TextBox("location", "")
-                        <br />
-                        @Html.DisplayName("Period")
-                        @Html.TextBox("period", "")
-                        <br />
-                        @Html.DisplayName("Description")
-                        @Html.TextBox("description", "")
-                        <br />
-                    </div>
-                    <div class="col-md-6" id="search-projects-buttons">
-                        <button style="width:70%" type="submit" value="Filter" class="btn blue-button btn-small btn-block"> @Html.DisplayName("Create Event")</button>
+    @using (Html.BeginForm("Create", "Event", FormMethod.Post))
+    {
+        <p>
+            <div class="row">
+                <div class="col-md-9" style="display:inline-block">
+                    <div class="row">
+                        <div class="col-md-10">
+                            <br />
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "account-input", placeholder = "Event Title" } })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Location, new { htmlAttributes = new { @class = "account-input", placeholder = "Location" } })
+                            @Html.ValidationMessageFor(model => model.Location, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Period, new { htmlAttributes = new { @class = "account-input", placeholder = "Time Period" } })
+                            @Html.ValidationMessageFor(model => model.Period, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "account-input", placeholder = "Description" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            <br />
+                            <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Create")</button>
+                        </div>
+                        <div class="col-md-2">
+                        </div>
                     </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
-            <div class="col-md-3"></div>
-        </div>
-    </p>
-}
+        </p>
+    }
+</body>
+
 

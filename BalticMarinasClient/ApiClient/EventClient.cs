@@ -90,36 +90,6 @@ namespace BalticMarinasClient.ApiClient
             return eventResult;
         }
 
-        public async Task<ObservableCollection<Event>> GetAllEventsByUserId(int userId)
-        {
-            var result = string.Empty;
-
-            using (var client = new HttpClient())
-            {
-                client.BaseAddress = new Uri(this.eventServiceBase);
-                client.DefaultRequestHeaders.Accept.Clear();
-                client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
-
-                var urlAddress = eventServiceBase + "users" + "/" + userId;
-
-                try
-                {
-                    HttpResponseMessage response = await client.GetAsync(urlAddress).ConfigureAwait(continueOnCapturedContext: false);
-                    if (response.IsSuccessStatusCode)
-                    {
-                        result = await response.Content.ReadAsStringAsync();
-                    }
-
-                    var list = JsonConvert.DeserializeObject<ObservableCollection<Event>>(result);
-                    return list;
-                }
-                catch (Exception e)
-                {
-                    throw new Exception($"Error: {e.StackTrace}");
-                }
-            }
-        }
-
         public async void DeleteEventById(int? eventId)
         {
             using (var client = new HttpClient())

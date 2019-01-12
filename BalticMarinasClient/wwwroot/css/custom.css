@@ -367,6 +367,35 @@ input[type=submit]:hover {
 
 /*#endregion*/
 
+/*#region Reservations table*/
+.reservations-table {
+    font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    .reservations-table td, .reservations-table th {
+        border: 1px solid #ddd;
+        padding: 8px;
+    }
+
+    .reservations-table tr:nth-child(even) {
+        background-color: #f2f2f2;
+    }
+
+    .reservations-table tr:hover {
+        background-color: #ddd;
+    }
+
+    .reservations-table th {
+        padding-top: 12px;
+        padding-bottom: 12px;
+        text-align: left;
+        background-color: #4056A1;
+        color: white;
+    }
+/*#endregion*/
+
 /*#region Comment*/
 .comment-list ul {
     padding: 20px;

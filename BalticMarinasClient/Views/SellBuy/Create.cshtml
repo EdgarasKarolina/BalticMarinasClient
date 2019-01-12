@@ -1,52 +1,40 @@
-﻿
-@{
-    ViewData["Title"] = "Create";
-}
+﻿@model BalticMarinasClient.Models.SoldItem
 
-<h2>Sell new item</h2>
+<body>
+    <h2 class="title">Sell new item</h2>
 
-@using (Html.BeginForm("Create", "SellBuy", FormMethod.Post))
-{
-    <p>
-        <div class="row">
-            <div class="col-md-9" style="display:inline-block">
-                <div class="row">
-                    <div class="col-md-9">
-                        <div>
-                            @Html.DisplayName("Title")
+    @using (Html.BeginForm("Create", "SellBuy", FormMethod.Post))
+    {
+        <p>
+            <div class="row">
+                <div class="col-md-9" style="display:inline-block">
+                    <div class="row">
+                        <div class="col-md-10">
                             <br />
-                            @Html.TextBox("title", "", new { @class = "account-input" })
-                        </div>
-                        <div>
-                            @Html.DisplayName("Category")
+                            @Html.EditorFor(model => model.Title, new { htmlAttributes = new { @class = "account-input", placeholder = "Title" } })
+                            @Html.ValidationMessageFor(model => model.Title, "", new { @class = "text-danger" })
                             <br />
-                            @Html.TextBox("category", "", new { @class = "account-input" })
-                        </div>
-                        <div>
-                            @Html.DisplayName("Price")
+                            @Html.EditorFor(model => model.Category, new { htmlAttributes = new { @class = "account-input", placeholder = "Category" } })
+                            @Html.ValidationMessageFor(model => model.Category, "", new { @class = "text-danger" })
                             <br />
-                            @Html.TextBox("price", "", new { @class = "account-input" })
-                        </div>
-                        <div>
-                            @Html.DisplayName("Made Year")
+                            @Html.EditorFor(model => model.Price, new { htmlAttributes = new { @class = "account-input", placeholder = "Price" } })
+                            @Html.ValidationMessageFor(model => model.Price, "", new { @class = "text-danger" })
                             <br />
-                            @Html.TextBox("madeYear", "", new { @class = "account-input" })
-                        </div>
-                        <div>
-                            @Html.DisplayName("Description")
+                            @Html.EditorFor(model => model.MadeYear, new { htmlAttributes = new { @class = "account-input", placeholder = "Year made" } })
+                            @Html.ValidationMessageFor(model => model.MadeYear, "", new { @class = "text-danger" })
                             <br />
-                            @Html.TextBox("description", "", new { @class = "account-input" })
+                            @Html.EditorFor(model => model.Description, new { htmlAttributes = new { @class = "account-input", placeholder = "Description" } })
+                            @Html.ValidationMessageFor(model => model.Description, "", new { @class = "text-danger" })
+                            <br />
+                            <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Create advert")</button>
                         </div>
-                        <div>
-                            <button style="width:70%; margin-top: 15px" type="submit" value="Filter" class="btn blue-button btn-small btn-block"> <span class="glyphicon glyphicon-ok"></span> @Html.DisplayName("Finish")</button>
+                        <div class="col-md-2">
                         </div>
-                        <br />
-                    </div>
-                    <div class="col-md-3">
                     </div>
                 </div>
+                <div class="col-md-3"></div>
             </div>
-        </div>
-    </p>
-}
+        </p>
+    }
+</body>
 
