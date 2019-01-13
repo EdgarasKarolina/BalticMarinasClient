@@ -24,10 +24,11 @@ body {
     border-style: none !important;
 }
 
-.navbar-brand:hover,
-.navbar-brand:focus {
-    color: #D3D3D3;
-}
+    .navbar-brand:hover,
+    .navbar-brand:focus {
+        color: #D3D3D3;
+        background-color: #4056A1 !important;
+    }
 
 .dropdown {
     color: white !important;
@@ -35,6 +36,7 @@ body {
 }
 
 .dropdown-menu {
+    margin-top: 65px;
     background-color: #4056A1 !important;
     color: white !important;
 }
@@ -43,6 +45,13 @@ body {
 .dropdown-menu:focus {
     color: #D3D3D3 !important;
     background-color: #4056A1 !important;
+}
+
+.dropdown-li {
+    position: relative;
+    float: left;
+    left: 50%;
+    transform: translate(-50%, -50%);
 }
 
 .account-input {
