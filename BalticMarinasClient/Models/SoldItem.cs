@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace BalticMarinasClient.Models
 {
@@ -7,9 +8,13 @@ namespace BalticMarinasClient.Models
         [JsonProperty("SoldItemId")]
         public int SoldItemId { get; set; }
 
+        [Required]
+        [StringLength(100, ErrorMessage = "Max 100 characters")]
         [JsonProperty("Title")]
         public string Title { get; set; }
 
+        [Required]
+        [StringLength(100, ErrorMessage = "Max 100 characters")]
         [JsonProperty("Category")]
         public string Category { get; set; }
 
@@ -19,6 +24,8 @@ namespace BalticMarinasClient.Models
         [JsonProperty("MadeYear")]
         public string MadeYear { get; set; }
 
+        [Required]
+        [StringLength(100, ErrorMessage = "Max 100 characters")]
         [JsonProperty("Description")]
         public string Description { get; set; }
 

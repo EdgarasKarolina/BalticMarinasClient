@@ -11,12 +11,6 @@
             <tr>
                 <th>Berth Number</th>
                 <th>Price per Day</th>
-                <th>Details</th>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                    <th>Delete</th>
-                }
-            </tr>
         </thead>
         <tbody>
             @foreach (var item in ViewBag.BerthsList)

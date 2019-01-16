@@ -14,11 +14,6 @@
                 <th>Location</th>
                 <th>Period</th>
                 <th>Description</th>
-                <th>Details</th>
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                    <th>Delete</th>
-                }
             </tr>
         </thead>
         <tbody>
@@ -29,10 +24,10 @@
                     <td>@item.Location</td>
                     <td>@item.Period</td>
                     <td>@item.Description</td>
-                    <td>@Html.ActionLink("Details", "Details", new { id = item.EventId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+                    <td>@Html.ActionLink("", "Details", new { id = item.EventId }, new { @class = "btn blue-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-stats" })</td>
                     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
                     {
-                        <td>@Html.ActionLink("Delete", "Delete", new { id = item.EventId }, new { @class = "btn red-button btn-large buttons-with-70proc-width" })</td>
+                        <td>@Html.ActionLink("", "Delete", new { id = item.EventId }, new { @class = "btn red-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-trash" })</td>
                     }
                 </tr>
             }

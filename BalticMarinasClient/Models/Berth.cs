@@ -1,4 +1,5 @@
 ﻿using Newtonsoft.Json;
+using System.ComponentModel.DataAnnotations;
 
 namespace BalticMarinasClient.Models
 {
@@ -10,6 +11,7 @@ namespace BalticMarinasClient.Models
         [JsonProperty("MarinaId")]
         public int MarinaId { get; set; }
 
+        [Required]
         [JsonProperty("Price")]
         public double Price { get; set; }
     }

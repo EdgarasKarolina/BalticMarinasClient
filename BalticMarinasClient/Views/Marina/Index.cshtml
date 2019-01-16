@@ -1,10 +1,4 @@
 ﻿
-
-@if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-{
-    <td>@Html.ActionLink("New", "Create", "Marina", new { @class = "btn btn-danger btn-large buttons-with-70proc-width" })</td>
-}
-
 <body>
     <h2 class="title">List of Marinas</h2>
 
@@ -25,47 +19,51 @@
         <tbody>
             @foreach (var item in ViewBag.MarinasList)
             {
-            <tr>
-                <td>@item.MarinaName</td>
-                <td>@item.Phone</td>
-                <td>@item.Depth</td>
-                <td>@item.CityName</td>
-                <td>@item.Country</td>
-                <td>@item.TotalBerths</td>
+                <tr>
+                    <td>@item.MarinaName</td>
+                    <td>@item.Phone</td>
+                    <td>@item.Depth</td>
+                    <td>@item.CityName</td>
+                    <td>@item.Country</td>
+                    <td>@item.TotalBerths</td>
 
-                @if (item.IsToilet == 1)
-                {
-                    <td>Yes</td>
-                }
-                else
-                {
-                    <td>No</td>
-                }
-                @if (item.IsShower == 1)
-                {
-                    <td>Yes</td>
-                }
-                else
-                {
-                    <td>No</td>
-                }
-                @if (item.IsInternet == 1)
-                {
-                    <td>Yes</td>
-                }
-                else
-                {
-                    <td>No</td>
-                }
-                <td>@Html.ActionLink("", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-stats" })</td>
+                    @if (item.IsToilet == 1)
+                    {
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                    }
+                    @if (item.IsShower == 1)
+                    {
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                    }
+                    @if (item.IsInternet == 1)
+                    {
+                        <td>Yes</td>
+                    }
+                    else
+                    {
+                        <td>No</td>
+                    }
+                    <td>@Html.ActionLink("", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-stats" })</td>
 
-                @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
-                {
-                <td>@Html.ActionLink("", "Delete", new { marinaId = item.MarinaId }, new { @class = "btn red-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-trash" })</td>
-                }
-            </tr>
+                    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+                    {
+                        <td>@Html.ActionLink("", "Delete", new { marinaId = item.MarinaId }, new { @class = "btn red-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-trash" })</td>
+                    }
+                </tr>
             }
         </tbody>
     </table>
+    @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
+    {
+        @Html.ActionLink("New", "Create", "Marina", new { @class = "btn red-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-trash" })
+    }
 </body>
 

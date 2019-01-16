@@ -1,5 +1,6 @@
 ﻿using Newtonsoft.Json;
 using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace BalticMarinasClient.Models
 {
@@ -14,6 +15,8 @@ namespace BalticMarinasClient.Models
         [JsonProperty("TimePlaced")]
         public DateTime TimePlaced { get; set; }
 
+        [Required]
+        [StringLength(1200, ErrorMessage = "Max 1200 characters")]
         [JsonProperty("Body")]
         public string Body { get; set; }
 
