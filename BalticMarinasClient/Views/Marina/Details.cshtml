@@ -58,8 +58,8 @@
     @if (User.Identity.IsAuthenticated && User.IsInRole("Admin"))
     {
         <div class="wrapper">
-            <div style="display: inline-block; width:33%">@Html.ActionLink("Berths", "Index", "Berth", new { marinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width button-full-width" })</div>
-            <div style="display: inline-block; width:33%">@Html.ActionLink("Edit", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width button-full-width" })</div>
+            <div style="display: inline-block; width:33%">@Html.ActionLink("Berths", "Index", "Berth", new { marinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width button-full-width " })</div>
+            <div style="display: inline-block; width:33%">@Html.ActionLink("Edit", "Index", "Berth", new { id = @ViewBag.MarinasList.MarinaId }, new { @class = "btn green-button btn-large buttons-with-70proc-width button-full-width" })</div>
             <div style="display: inline-block; width:34%">@Html.ActionLink("Delete", "Delete", "Marina", new { marinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn red-button btn-large buttons-with-70proc-width button-full-width" })</div>
         </div>
     }

@@ -101,6 +101,8 @@ input[type=submit]:hover {
     color: #fff;
     background-color: #4056A1;
     border-color: #2e6da4;
+    height: 40px;
+    width: 40px;
 }
 
 .blue-button-square:focus,
@@ -116,6 +118,46 @@ input[type=submit]:hover {
     border-color: #204d74;
 }
 
+.green-button {
+    color: #fff;
+    background-color: #32CD32;
+    border-color: #32CD32;
+}
+
+.green-button:focus,
+.green-button.focus {
+    color: #fff;
+    background-color: #7CFC00;
+    border-color: #7CFC00;
+}
+
+.green-button:hover {
+    color: #fff;
+    background-color: #7CFC00;
+    border-color: #7CFC00;
+}
+
+.red-button-square {
+    color: #fff;
+    background-color: #FF0000;
+    border-color: #c60f0b;
+    height: 40px;
+    width: 40px;
+}
+
+.red-button-square:focus,
+.red-button-square.focus {
+    color: #fff;
+    background-color: #FFA07A;
+    border-color: #c60f0b;
+}
+
+.red-button-square:hover {
+    color: #fff;
+    background-color: #FFA07A;
+    border-color: #c60f0b;
+}
+
 .red-button {
     color: #fff;
     background-color: #FF0000;
@@ -126,13 +168,13 @@ input[type=submit]:hover {
 .red-button.focus {
     color: #fff;
     background-color: #FFA07A;
-    border-color: #c60f0b;
+    border-color: #FFA07A;
 }
 
 .red-button:hover {
     color: #fff;
     background-color: #FFA07A;
-    border-color: #c60f0b;
+    border-color: #FFA07A;
 }
 
 .red-button-square {

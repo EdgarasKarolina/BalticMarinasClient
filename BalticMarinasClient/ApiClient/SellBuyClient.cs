@@ -98,7 +98,7 @@ namespace BalticMarinasClient.ApiClient
                 }
                 catch (Exception e)
                 {
-                    //this.logger.Error($"Error in GetUserByEmail - {e}");
+                    throw new Exception($"Error: {e.StackTrace}");
                 }
             }
 

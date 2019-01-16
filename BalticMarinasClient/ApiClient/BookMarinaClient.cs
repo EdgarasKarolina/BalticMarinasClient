@@ -88,7 +88,7 @@ namespace BalticMarinasClient.ApiClient
                 }
                 catch (Exception e)
                 {
-                    //this.logger.Error($"Error in GetUserByEmail - {e}");
+                    throw new Exception($"Error: {e.StackTrace}");
                 }
             }
 
@@ -241,7 +241,7 @@ namespace BalticMarinasClient.ApiClient
                 }
                 catch (Exception e)
                 {
-                    //this.logger.Error($"Error in GetUserByEmail - {e}");
+                    throw new Exception($"Error: {e.StackTrace}");
                 }
             }
 
@@ -380,8 +380,6 @@ namespace BalticMarinasClient.ApiClient
                     reservationId = JsonConvert.DeserializeObject<int>(result);
                     int res = await Task.FromResult<int>(reservationId);
                     return res;
-
-                    //return reservationId;
                 }
                 catch (Exception e)
                 {
