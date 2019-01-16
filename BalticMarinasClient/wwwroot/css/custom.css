@@ -97,6 +97,25 @@ input[type=submit]:hover {
     border-color: #204d74;
 }
 
+.blue-button-square {
+    color: #fff;
+    background-color: #4056A1;
+    border-color: #2e6da4;
+}
+
+.blue-button-square:focus,
+.blue-button-square.focus {
+    color: #fff;
+    background-color: #286090;
+    border-color: #122b40;
+}
+
+.blue-button-square:hover {
+    color: #fff;
+    background-color: #286090;
+    border-color: #204d74;
+}
+
 .red-button {
     color: #fff;
     background-color: #FF0000;
@@ -111,6 +130,27 @@ input[type=submit]:hover {
 }
 
 .red-button:hover {
+    color: #fff;
+    background-color: #FFA07A;
+    border-color: #c60f0b;
+}
+
+.red-button-square {
+    color: #fff;
+    background-color: #FF0000;
+    border-color: #c60f0b;
+    height: 40px;
+    width: 40px;
+}
+
+.red-button-square:focus,
+.red-button-square.focus {
+    color: #fff;
+    background-color: #FFA07A;
+    border-color: #c60f0b;
+}
+
+.red-button-square:hover {
     color: #fff;
     background-color: #FFA07A;
     border-color: #c60f0b;
@@ -133,8 +173,15 @@ input[type=submit]:hover {
     width: 100%;
 }
 
-#weather-table td, #weather-table th {
-    border: 1px solid #ddd;
+#weather-table td {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 8px;
+}
+
+#weather-table th {
+    border-top: 1px solid #4056A1;
+    border-bottom: 1px solid #4056A1;
     padding: 8px;
 }
 
@@ -150,8 +197,7 @@ input[type=submit]:hover {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4056A1;
-    color: white;
+    color: black;
 } 
 /*#endregion*/
 
@@ -162,8 +208,15 @@ input[type=submit]:hover {
     width: 100%;
 }
 
-#sold-items-table td, #sold-items-table th {
-    border: 1px solid #ddd;
+#sold-items-table td {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 8px;
+}
+
+#sold-items-table th {
+    border-top: 1px solid #4056A1;
+    border-bottom: 1px solid #4056A1;
     padding: 8px;
 }
 
@@ -179,8 +232,7 @@ input[type=submit]:hover {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4056A1;
-    color: white;
+    color: black;
 }
 /*#endregion*/
 
@@ -223,8 +275,15 @@ input[type=submit]:hover {
     width: 100%;
 }
 
-#events-table td, #events-table th {
-    border: 1px solid #ddd;
+#events-table td {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 8px;
+}
+
+#events-table th {
+    border-top: 1px solid #4056A1;
+    border-bottom: 1px solid #4056A1;
     padding: 8px;
 }
 
@@ -240,8 +299,7 @@ input[type=submit]:hover {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4056A1;
-    color: white;
+    color: black;
 }
 /*#endregion*/
 
@@ -261,8 +319,15 @@ input[type=submit]:hover {
     width: 100%;
 }
 
-.marinas-table td, .marinas-table th {
-    border: 1px solid #ddd;
+.marinas-table td {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 8px;
+}
+
+.marinas-table th {
+    border-top: 1px solid #4056A1;
+    border-bottom: 1px solid #4056A1;
     padding: 8px;
 }
 
@@ -278,9 +343,9 @@ input[type=submit]:hover {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4056A1;
-    color: white;
+    color: black;
 }
+
 /*#endregion*/
 
 /*#region Marina Details table*/
@@ -322,8 +387,15 @@ input[type=submit]:hover {
     width: 100%;
 }
 
-.berths-table td, .berths-table th {
-    border: 1px solid #ddd;
+.berths-table td {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 8px;
+}
+
+.berths-table th {
+    border-top: 1px solid #4056A1;
+    border-bottom: 1px solid #4056A1;
     padding: 8px;
 }
 
@@ -339,8 +411,7 @@ input[type=submit]:hover {
     padding-top: 12px;
     padding-bottom: 12px;
     text-align: left;
-    background-color: #4056A1;
-    color: white;
+    color: black;
 }
 /*#endregion*/
 
@@ -383,26 +454,32 @@ input[type=submit]:hover {
     width: 100%;
 }
 
-    .reservations-table td, .reservations-table th {
-        border: 1px solid #ddd;
-        padding: 8px;
-    }
+.reservations-table td {
+    border-top: 1px solid #FFFFFF;
+    border-bottom: 1px solid #FFFFFF;
+    padding: 8px;
+}
 
-    .reservations-table tr:nth-child(even) {
-        background-color: #f2f2f2;
-    }
+.reservations-table th {
+    border-top: 1px solid #4056A1;
+    border-bottom: 1px solid #4056A1;
+    padding: 8px;
+}
 
-    .reservations-table tr:hover {
-        background-color: #ddd;
-    }
+.reservations-table tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
 
-    .reservations-table th {
-        padding-top: 12px;
-        padding-bottom: 12px;
-        text-align: left;
-        background-color: #4056A1;
-        color: white;
-    }
+.reservations-table tr:hover {
+    background-color: #ddd;
+}
+
+.reservations-table th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    color: black;
+}
 /*#endregion*/
 
 /*#region Comment*/

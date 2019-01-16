@@ -12,10 +12,10 @@
                         <div class="col-md-10">
                             <br />
                             <div>
-                                @Html.TextBox("userName", "", new { @class = "account-input", placeholder = "Username" })
+                            @Html.TextBox("userName", "", new { @class = "account-input", placeholder = "Username" })
                             </div>
                             <br />
-                            @Html.TextBox("userPassword", "", new { @class = "account-input", placeholder = "Password" })
+                            @Html.TextBox("userPassword", "", new { @class = "account-input", placeholder = "Password", @type = "password" })
                             <br />
                             <button style="width:40%; margin-top:15px" type="submit" class="btn blue-button btn-small btn-block account-input"> <span class="glyphicon glyphicon-log-in"></span> @Html.DisplayName("Login")</button>
                         </div>
