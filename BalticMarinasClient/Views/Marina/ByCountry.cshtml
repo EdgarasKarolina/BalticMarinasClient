@@ -4,7 +4,7 @@
 }
 
 <body>
-    <h2>Marinas in Country</h2>
+    <h2 class="title">List of Marinas</h2>
 
     <table class="marinas-table">
         <thead>
@@ -56,8 +56,8 @@
                 {
                     <td>No</td>
                 }
-                <td>@Html.ActionLink("Details", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-                <td>@Html.ActionLink("Available Berths", "Available", "Berth", new { marinaId = item.MarinaId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+                <td>@Html.ActionLink("", "Details", new { id = item.MarinaId }, new { @class = "btn blue-button-square btn-large buttons-with-70proc-width glyphicon glyphicon-stats" })</td>
+                <td>@Html.ActionLink("Available Berths", "Available", "Berth", new { marinaId = item.MarinaId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn green-button btn-large buttons-with-70proc-width" })</td>
             </tr>
             }
         </tbody>

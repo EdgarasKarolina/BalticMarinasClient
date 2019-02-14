@@ -6,6 +6,10 @@
 <body>
     @using (Html.BeginForm("ByCountry", "Marina", FormMethod.Get))
     {
+    <div id="search-block-title">
+        <h1>Where are you planning to stay?</h1>
+        <h4>Here you can find marinas in Lithuania, Latvia and Estionia! </h4>
+    </div>
     <div class="container" id="search-block">
         <div class='col-md-4'>
             <div class="form-group">
@@ -31,8 +35,7 @@
             <div class="col-md-4" style="display:inline-block">
                 <div class="row">
                     <div class="col-md-8">
-                       
-                        @Html.DropDownList("country", (SelectList)ViewBag.Locations, new { @id = "location-input"})
+                        @Html.DropDownList("country", (SelectList)ViewBag.Locations, new { @id = "location-input" })
                     </div>
                     <div class="col-md-4">
                         <button type="submit" value="Filter" class="btn blue-button btn-small btn-block"> <span class="glyphicon glyphicon-search"></span> @Html.DisplayName("Search")</button>

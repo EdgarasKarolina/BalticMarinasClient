@@ -1,6 +1,6 @@
 ﻿
 <body>
-    <h2>Available Berths</h2>
+    <h2 class="title">Available Berths</h2>
 
     <table class="berths-table">
         <thead>
@@ -17,8 +17,8 @@
             <tr>
                 <td>@item.BerthId</td>
                 <td>@item.Price €</td>
-                <td>@Html.ActionLink("Details", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
-                <td>@Html.ActionLink("Select", "PersonalInformation", "Reservation", new { berthId = item.BerthId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn blue-button btn-large buttons-with-70proc-width" })</td>
+                <td>@Html.ActionLink("", "Details", new { marinaId = item.MarinaId, berthId = item.BerthId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width glyphicon glyphicon-stats" })</td>
+                <td>@Html.ActionLink("Select", "PersonalInformation", "Reservation", new { berthId = item.BerthId, checkIn = ViewBag.CheckIn, checkOut = ViewBag.CheckOut }, new { @class = "btn green-button btn-large buttons-with-70proc-width" })</td>
             </tr>
             }
         </tbody>
