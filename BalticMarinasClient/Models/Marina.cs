@@ -54,5 +54,39 @@ namespace BalticMarinasClient.Models
         [Required]
         [JsonProperty("IsInternet")]
         public int IsInternet { get; set; }
+
+        [Required]
+        [JsonProperty("IsPharmacy")]
+        public int IsPharmacy { get; set; }
+
+        [Required]
+        [JsonProperty("IsElectricity")]
+        public int IsElectricity { get; set; }
+
+        [Required]
+        [JsonProperty("IsRepairing")]
+        public int IsRepairing { get; set; }
+
+        [Required]
+        [JsonProperty("IsStore")]
+        public int IsStore { get; set; }
+
+        [Required]
+        [JsonProperty("IsTelephone")]
+        public int IsTelephone { get; set; }
+
+        [Required]
+        [JsonProperty("IsHotel")]
+        public int IsHotel { get; set; }
+
+        [Required]
+        [JsonProperty("IsCafeteria")]
+        public int IsCafeteria { get; set; }
+
+        [Required]
+        [JsonProperty("Description")]
+        public string Description { get; set; }
+
+
     }
 }

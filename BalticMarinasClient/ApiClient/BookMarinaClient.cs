@@ -15,6 +15,7 @@ namespace BalticMarinasClient.ApiClient
         private string berthServiceBase = "https://localhost:44300/api/berths/";
         private string reservationServiceBase = "https://localhost:44300/api/reservations/";
         private string commentServiceBase = "https://localhost:44300/api/comments/";
+        private string imageServiceBase = "https://localhost:44300/api/images/";
 
         #region Marinas methods
 
@@ -478,6 +479,28 @@ namespace BalticMarinasClient.ApiClient
             }
         }
 
+        #endregion
+
+        #region Image methods
+
+        //public async void SendConfirmationEmai(string emailBody, string receiver)
+        //{
+        //    Email email = new Email();
+        //    email.EmailBody = emailBody;
+        //    email.Receiver = receiver;
+
+        //    using (var client = new HttpClient())
+        //    {
+        //        client.BaseAddress = new Uri(this.emailServiceBase);
+        //        client.DefaultRequestHeaders.Accept.Clear();
+        //        client.DefaultRequestHeaders.Accept.Add(new MediaTypeWithQualityHeaderValue("application/json"));
+
+        //        var json = JsonConvert.SerializeObject(email);
+
+        //        HttpResponseMessage response = await client.PostAsync(emailServiceBase + "/" + emailBody + "/" + receiver, new StringContent(json, Encoding.UTF8, "application/json"));
+        //        response.EnsureSuccessStatusCode();
+        //    }
+        //}
         #endregion
     }
 }
