@@ -1,5 +1,30 @@
 ﻿
 <body>
+    <div class="row">
+        <div class="col-md-2" style="background-color:lavender;">
+            <div>Space gor Google Maps</div>
+            <div>Latitude, Longtitude</div>
+            <div>Services</div>
+            <div>Weather conditions</div>
+            <div>Comments</div>
+
+
+        </div>
+        <div class="col-md-10" style="background-color:lavenderblush;">
+            <h1 class="title">@ViewBag.MarinasList.MarinaName</h1>
+            <h4 class="title">@ViewBag.MarinasList.CityName ,@ViewBag.MarinasList.Country</h4>
+            <div>Place for images</div>
+            <p>
+                @ViewBag.MarinasList.Description
+            </p>
+        </div>
+    </div>
+
+
+
+
+
+
     <table id="marina-details">
         <tr>
             <th>Marina:</th>
