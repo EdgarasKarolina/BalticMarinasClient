@@ -1,22 +1,96 @@
 ﻿
 <body>
     <div class="row">
-        <div class="col-md-2" style="background-color:lavender;">
+        <div class="col-md-2">
             <div>Space gor Google Maps</div>
             <div>Latitude, Longtitude</div>
-            <div>Services</div>
+            <div>
+                <ul id="services-list">
+                    @if (@ViewBag.MarinasList.IsShower == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/shower.png">
+                        <span>Shower</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsInternet == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/internet.png">
+                        <span>Internet</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsPharmacy == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/pharmacy.png">
+                        <span>Pharmacy</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsElectricity == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/electricity.png">
+                        <span>Electricity</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsRepairing == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/repair.png">
+                        <span>Repair</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsStore == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/store.png">
+                        <span>Store</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsTelephone == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/telephone.png">
+                        <span>Telephone</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsHotel == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/hotel.png">
+                        <span>Hotel</span>
+                    </li>
+                    }
+                    @if (@ViewBag.MarinasList.IsCafeteria == 1)
+                    {
+                    <li>
+                        <img src="~/images/Marina/cafeteria.png">
+                        <span>Cafeteria</span>
+                    </li>
+                    }
+                </ul>
+            </div>
             <div>Weather conditions</div>
             <div>Comments</div>
 
 
         </div>
-        <div class="col-md-10" style="background-color:lavenderblush;">
+        <div class="col-md-10">
             <h1 class="title">@ViewBag.MarinasList.MarinaName</h1>
             <h4 class="title">@ViewBag.MarinasList.CityName ,@ViewBag.MarinasList.Country</h4>
             <div>Place for images</div>
             <p>
                 @ViewBag.MarinasList.Description
             </p>
+            @foreach (var item in ViewBag.Comments)
+            {
+                <ul class="comment-list">
+                    <li><h3>@item.UserName</h3></li>
+                    <li>@item.TimePlaced</li>
+                    <li>@item.Body</li>
+                </ul>
+            }
         </div>
     </div>
 
@@ -145,15 +219,5 @@
     else
     {
         <div style="display: inline-block; width:100%">@Html.ActionLink("Berths", "Index", "Berth", new { marinaId = @ViewBag.MarinasList.MarinaId }, new { @class = "btn blue-button btn-large buttons-with-70proc-width button-full-width" })</div>
-    }
-
-
-    @foreach (var item in ViewBag.ItemsList)
-    {
-        <ul class="comment-list">
-            <li><h3>@item.UserName</h3></li>
-            <li>@item.TimePlaced</li>
-            <li>@item.Body</li>
-        </ul>
     }
 </body>

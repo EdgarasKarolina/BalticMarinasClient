@@ -400,6 +400,21 @@ input[type=submit]:hover {
 
 /*#region Marina Details table*/
 
+#services-list {
+    list-style-type: none;
+}
+
+#services-list li {
+    margin-top: 12px;
+    margin-bottom: 12px;
+}
+
+#services-list li img {
+    vertical-align: middle;
+    height: 25px;
+    width: 25px
+}
+
 #marina-details {
     font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
     border-collapse: collapse;

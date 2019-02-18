@@ -38,8 +38,8 @@ namespace BalticMarinasClient.Controllers
         public IActionResult Details(int? id)
         {
             var marinas = bookMarinaClient.GetMarinaById(id).Result;
-            var items = bookMarinaClient.GetAllCommentsByMarinaId(id).Result;
-            ViewBag.ItemsList = items;
+            var comments = bookMarinaClient.GetAllCommentsByMarinaId(id).Result;
+            ViewBag.Comments = comments;
             ViewBag.MarinasList = marinas;
             return View();
         }
