@@ -87,6 +87,14 @@ namespace BalticMarinasClient.Models
         [JsonProperty("Description")]
         public string Description { get; set; }
 
+        [Required]
+        [JsonProperty("Latitude")]
+        public decimal Latitude { get; set; }
+
+        [Required]
+        [JsonProperty("Longtitude")]
+        public decimal Longtitude { get; set; }
+
 
     }
 }

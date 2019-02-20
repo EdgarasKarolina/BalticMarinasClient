@@ -1,9 +1,9 @@
 ﻿
 <body>
     <div class="row">
-        <div class="col-md-2">
-            <div>Space gor Google Maps</div>
-            <div>Latitude, Longtitude</div>
+        <div class="col-md-3">
+            <div><iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d18359.93765270065!2d24.00432035627738!3d54.885505376741236!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x46e717f936813e0f%3A0xb9699c1be69d398d!2sYacht+rent+boats+for+rent!5e0!3m2!1sen!2sdk!4v1550696183728" width="250" height="200" frameborder="0" style="border:0" allowfullscreen></iframe></div>
+            <div>@ViewBag.MarinasList.Latitude @ViewBag.MarinasList.Longtitude</div>
             <div>
                 <ul id="services-list">
                     @if (@ViewBag.MarinasList.IsShower == 1)
@@ -76,7 +76,7 @@
 
 
         </div>
-        <div class="col-md-10">
+        <div class="col-md-9">
             <h1 class="title">@ViewBag.MarinasList.MarinaName</h1>
             <h4 class="title">@ViewBag.MarinasList.CityName ,@ViewBag.MarinasList.Country</h4>
             <div>Place for images</div>

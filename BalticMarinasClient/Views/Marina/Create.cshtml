@@ -43,6 +43,27 @@
                             <br />
                             @Html.EditorFor(model => model.IsInternet, new { htmlAttributes = new { @class = "account-input", placeholder = "Internet" } })
                             @Html.ValidationMessageFor(model => model.IsInternet, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsPharmacy, new { htmlAttributes = new { @class = "account-input", placeholder = "Pharmacy" } })
+                            @Html.ValidationMessageFor(model => model.IsPharmacy, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsElectricity, new { htmlAttributes = new { @class = "account-input", placeholder = "Electricity" } })
+                            @Html.ValidationMessageFor(model => model.IsElectricity, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsRepairing, new { htmlAttributes = new { @class = "account-input", placeholder = "Repairing" } })
+                            @Html.ValidationMessageFor(model => model.IsRepairing, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsStore, new { htmlAttributes = new { @class = "account-input", placeholder = "Store" } })
+                            @Html.ValidationMessageFor(model => model.IsStore, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsTelephone, new { htmlAttributes = new { @class = "account-input", placeholder = "Telephone" } })
+                            @Html.ValidationMessageFor(model => model.IsTelephone, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsHotel, new { htmlAttributes = new { @class = "account-input", placeholder = "Hotel" } })
+                            @Html.ValidationMessageFor(model => model.IsHotel, "", new { @class = "text-danger" })
+                            <br />
+                            @Html.EditorFor(model => model.IsCafeteria, new { htmlAttributes = new { @class = "account-input", placeholder = "Cafeteria" } })
+                            @Html.ValidationMessageFor(model => model.IsCafeteria, "", new { @class = "text-danger" })
                             <button style="width:40%; margin-top:15px" type="submit" value="Filter" class="btn blue-button btn-block"> <span class="glyphicon glyphicon-pencil"></span> @Html.DisplayName("Create")</button>
                         </div>
                         <div class="col-md-2">
@@ -51,7 +72,7 @@
                 </div>
                 <div class="col-md-3"></div>
             </div>
-        </p>
+        </p> 
     }
 </body>
 

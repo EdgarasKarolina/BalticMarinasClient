@@ -21,9 +21,9 @@ namespace BalticMarinasClient.Controllers
 
         [Authorize(Roles = "Admin")]
         [HttpPost]
-        public IActionResult Create(string marinaName, string phone, string email, double depth, string cityName, string country, string zipCodeNumber, int totalBerths, int isShower, int isToilet, int isInternet, int isPharmacy, int isElectricity, int isRepairing, int isStore, int isTelephone, int isHotel, int isCafeteria, string description)
+        public IActionResult Create(string marinaName, string phone, string email, double depth, string cityName, string country, string zipCodeNumber, int totalBerths, int isShower, int isToilet, int isInternet, int isPharmacy, int isElectricity, int isRepairing, int isStore, int isTelephone, int isHotel, int isCafeteria, string description, decimal latitude, decimal longtitude)
         {
-            Marina marina = new Marina() { MarinaName = marinaName, Phone = phone, Email = email, Depth = depth, CityName = cityName, Country = country, ZipCodeNumber = zipCodeNumber, TotalBerths = totalBerths, IsShower = isShower, IsToilet = isToilet, IsInternet = isInternet, IsPharmacy = isPharmacy, IsElectricity = isElectricity, IsRepairing = isRepairing, IsStore = isStore, IsTelephone = isTelephone, IsHotel = isHotel, IsCafeteria = isCafeteria, Description = description };
+            Marina marina = new Marina() { MarinaName = marinaName, Phone = phone, Email = email, Depth = depth, CityName = cityName, Country = country, ZipCodeNumber = zipCodeNumber, TotalBerths = totalBerths, IsShower = isShower, IsToilet = isToilet, IsInternet = isInternet, IsPharmacy = isPharmacy, IsElectricity = isElectricity, IsRepairing = isRepairing, IsStore = isStore, IsTelephone = isTelephone, IsHotel = isHotel, IsCafeteria = isCafeteria, Description = description, Latitude = latitude, Longtitude = longtitude };
             bookMarinaClient.CreateMarina(marina);
             return RedirectToAction("Index", "Marina");
         }
